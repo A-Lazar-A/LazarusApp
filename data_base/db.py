@@ -118,10 +118,13 @@ class DataBase():
             self.cursor.execute("""DELETE FROM items""")
         self.connection.commit()
 
-    def get_income(self, days: int):
+    def get_sales(self, days: int):
 
         current = self.cursor.execute(f"""SELECT * FROM items WHERE ((buy_date 
         between (?) and (?)) and sell_date is null)
         or (sell_date is not null and sell_date between (?) 
         and (?))""", (date.today() - timedelta(days=days), date.today(), date.today() - timedelta(days=days),date.today())).fetchall()
         return current
+
+    def get_all(self):
+        current = self.cursor.execute("""SELECT * FROM items""").fetchall()

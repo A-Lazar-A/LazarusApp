@@ -61,7 +61,7 @@ def main():
     # }
     # db.add_item(item)
     print(db.get_item())
-    print(db.get_income(7))
+    print(db.get_sales(7))
 
 
 if __name__ == '__main__':
