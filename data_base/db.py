@@ -35,7 +35,7 @@ class DataBase():
         )""")
         self.connection.commit()
 
-    def add_item(self, item: dict):
+    def add_item(self, item: dict, count: int):
         buy_price_rub = 0
         buy_price_usdt = 0
         sell_price_rub = 0
@@ -99,11 +99,12 @@ class DataBase():
         item['income_usd'] = str(sell_price_usdt - buy_price_usdt)
         item['buy_price'] = str(item['buy_price'])
         item['sell_price'] = str(item['sell_price'])
-        self.cursor.execute(
-            """INSERT INTO items VALUES(:name, 
-            :buy_price,:buy_currency,:sell_price,:sell_currency,:buy_date,:sell_date,:income_rub,:income_usd)""",
-            item)
-        self.connection.commit()
+        for _ in range(count):
+            self.cursor.execute(
+                """INSERT INTO items VALUES(:name, 
+                :buy_price,:buy_currency,:sell_price,:sell_currency,:buy_date,:sell_date,:income_rub,:income_usd)""",
+                item)
+            self.connection.commit()
 
     def get_number_of_columns(self) -> int:
         return self.cursor.execute("""SELECT COUNT(*) FROM pragma_table_info('items')""").fetchone()[0]

@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import  QDialog
+from PySide6.QtWidgets import QDialog
 from datetime import date
 
 from ui.base.ui_dialog import Ui_Dialog
@@ -16,7 +16,6 @@ class DialogWindow(QDialog):
         self.ui.buy_date_ui.setDate(date.today())
         self.ui.sell_date_ui.setDate(date.today())
         self.ui.add_dialog_button.clicked.connect(self.add_item)
-
 
     def add_item(self):
         db = DataBase()
@@ -36,7 +35,7 @@ class DialogWindow(QDialog):
             'income_rub': None,
             'income_usd': None,
         }
-        db.add_item(item)
+        db.add_item(item, int(self.ui.quantity_ui.text()))
         self.mainwindow.refresh_table()
         self.mainwindow.refresh_weekly()
         self.mainwindow.refresh_monthly()

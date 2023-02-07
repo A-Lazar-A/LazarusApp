@@ -174,6 +174,7 @@ class Ui_Dialog(object):
 "")
         self.verticalLayout_3 = QVBoxLayout(self.price_frame)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.verticalLayout_3.setContentsMargins(0, -1, -1, -1)
         self.label_3 = QLabel(self.price_frame)
         self.label_3.setObjectName(u"label_3")
         self.label_3.setMaximumSize(QSize(16777215, 20))
@@ -352,6 +353,7 @@ class Ui_Dialog(object):
         self.quantity_ui.setObjectName(u"quantity_ui")
         self.quantity_ui.setStyleSheet(u"font-size: 20pt;\n"
 "")
+        self.quantity_ui.setMinimum(1)
 
         self.verticalLayout_5.addWidget(self.quantity_ui)
 
