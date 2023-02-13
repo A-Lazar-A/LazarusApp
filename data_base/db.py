@@ -113,7 +113,7 @@ class DataBase():
         if id is not None:
             current = self.cursor.execute("""SELECT * FROM items WHERE ROWID = (?)""", (id,)).fetchall()
         else:
-            current = self.cursor.execute("""SELECT * FROM items""").fetchall()
+            current = self.cursor.execute("""SELECT *, ROWID FROM items""").fetchall()
         return current[::-1]
 
     def beautify_items(self, items):
@@ -142,6 +142,7 @@ class DataBase():
             item.append(date.fromisoformat(row[6]).strftime('%d.%m.%Y'))
             item.append(str(row[7]) + ' ₽')
             item.append(str(row[8]) + ' $')
+            item.append(str(row[9]))
 
             answer.append(item)
         return answer
