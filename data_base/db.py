@@ -35,6 +35,37 @@ class DataBase():
         )""")
         self.connection.commit()
 
+    @staticmethod
+    def count_sell_price(self, item: dict) -> tuple:
+        match item['sell_currency']:
+            case 'usdt':
+                sell_price_usdt = item['sell_price']
+                response = requests.get('https://api.binance.com/api/v3/ticker/price',
+                                        params={'symbol': 'USDTRUB'}).json()
+                sell_price_rub = (item['sell_price'] * Decimal(response['price'])).quantize(Decimal('1.00'))
+            case 'rub':
+                sell_price_rub = item['sell_price']
+                response = requests.get('https://api.binance.com/api/v3/ticker/price',
+                                        params={'symbol': 'USDTRUB'}).json()
+                sell_price_usdt = (item['sell_price'] / Decimal(response['price'])).quantize(Decimal('1.00'))
+            case 'ada':
+
+                response = requests.get('https://api.binance.com/api/v3/ticker/price',
+                                        params={'symbol': 'ADARUB'}).json()
+                sell_price_rub = (item['sell_price'] * Decimal(response['price'])).quantize(Decimal('1.00'))
+                response = requests.get('https://api.binance.com/api/v3/ticker/price',
+                                        params={'symbol': 'ADAUSDT'}).json()
+                sell_price_usdt = (item['sell_price'] * Decimal(response['price'])).quantize(Decimal('1.00'))
+            case 'eth':
+                response = requests.get('https://api.binance.com/api/v3/ticker/price',
+                                        params={'symbol': 'ETHRUB'}).json()
+                sell_price_rub = (item['sell_price'] * Decimal(response['price'])).quantize(Decimal('1.00'))
+                response = requests.get('https://api.binance.com/api/v3/ticker/price',
+                                        params={'symbol': 'ETHUSDT'}).json()
+                sell_price_usdt = (item['sell_price'] * Decimal(response['price'])).quantize(Decimal('1.00'))
+
+        return sell_price_rub, sell_price_usdt
+
     def add_item(self, item: dict, count: int):
         buy_price_rub = 0
         buy_price_usdt = 0
@@ -67,33 +98,7 @@ class DataBase():
                                         params={'symbol': 'ETHUSDT'}).json()
                 buy_price_usdt = (item['buy_price'] * Decimal(response['price'])).quantize(Decimal('1.00'))
         if item['sell_price'] is not None:
-
-            match item['sell_currency']:
-                case 'usdt':
-                    sell_price_usdt = item['sell_price']
-                    response = requests.get('https://api.binance.com/api/v3/ticker/price',
-                                            params={'symbol': 'USDTRUB'}).json()
-                    sell_price_rub = (item['sell_price'] * Decimal(response['price'])).quantize(Decimal('1.00'))
-                case 'rub':
-                    sell_price_rub = item['sell_price']
-                    response = requests.get('https://api.binance.com/api/v3/ticker/price',
-                                            params={'symbol': 'USDTRUB'}).json()
-                    sell_price_usdt = (item['sell_price'] / Decimal(response['price'])).quantize(Decimal('1.00'))
-                case 'ada':
-
-                    response = requests.get('https://api.binance.com/api/v3/ticker/price',
-                                            params={'symbol': 'ADARUB'}).json()
-                    sell_price_rub = (item['sell_price'] * Decimal(response['price'])).quantize(Decimal('1.00'))
-                    response = requests.get('https://api.binance.com/api/v3/ticker/price',
-                                            params={'symbol': 'ADAUSDT'}).json()
-                    sell_price_usdt = (item['sell_price'] * Decimal(response['price'])).quantize(Decimal('1.00'))
-                case 'eth':
-                    response = requests.get('https://api.binance.com/api/v3/ticker/price',
-                                            params={'symbol': 'ETHRUB'}).json()
-                    sell_price_rub = (item['sell_price'] * Decimal(response['price'])).quantize(Decimal('1.00'))
-                    response = requests.get('https://api.binance.com/api/v3/ticker/price',
-                                            params={'symbol': 'ETHUSDT'}).json()
-                    sell_price_usdt = (item['sell_price'] * Decimal(response['price'])).quantize(Decimal('1.00'))
+            sell_price_rub, sell_price_usdt = self.count_sell_price(self, item)
 
         item['income_rub'] = str(sell_price_rub - buy_price_rub)
         item['income_usd'] = str(sell_price_usdt - buy_price_usdt)
@@ -116,6 +121,23 @@ class DataBase():
             current = self.cursor.execute("""SELECT *, ROWID FROM items""").fetchall()
         return current[::-1]
 
+    def update_sold_item(self, item: dict):
+        current = self.cursor.execute("""SELECT * FROM items WHERE ROWID = (:id)""", item).fetchone()
+        income_rub = Decimal(current[7])
+        income_usd = Decimal(current[8])
+        sell_price_rub, sell_price_usdt = self.count_sell_price(self, item)
+
+        item['income_rub'] = str(sell_price_rub + income_rub)
+        item['income_usd'] = str(sell_price_usdt + income_usd)
+        # TODO: if sell price wasnt 0 need to count income differently
+        item['sell_price'] = str(item['sell_price'])
+        self.cursor.execute(
+            """UPDATE items SET sell_price = :sell_price, sell_date = :sell_date, sell_currency = :sell_currency, income_rub = :income_rub, 
+            income_usd = :income_usd WHERE ROWID = (:id)""",
+            item)
+        self.connection.commit()
+
+    @staticmethod
     def beautify_items(self, items):
         answer = []
         for row in items:

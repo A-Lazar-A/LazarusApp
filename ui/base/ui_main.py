@@ -251,15 +251,15 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_7.addWidget(self.add_button)
 
-        self.pushButton = QPushButton(self.centralwidget)
-        self.pushButton.setObjectName(u"pushButton")
+        self.sold_button = QPushButton(self.centralwidget)
+        self.sold_button.setObjectName(u"sold_button")
         sizePolicy1 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
         sizePolicy1.setHorizontalStretch(0)
         sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
-        self.pushButton.setSizePolicy(sizePolicy1)
-        self.pushButton.setMinimumSize(QSize(0, 40))
-        self.pushButton.setStyleSheet(u"QPushButton{\n"
+        sizePolicy1.setHeightForWidth(self.sold_button.sizePolicy().hasHeightForWidth())
+        self.sold_button.setSizePolicy(sizePolicy1)
+        self.sold_button.setMinimumSize(QSize(0, 40))
+        self.sold_button.setStyleSheet(u"QPushButton{\n"
 "background-color: rgba(255, 255, 255, 30);\n"
 "border: 1px solid rgba(255, 255, 255, 40);\n"
 "border-radius: 5px;\n"
@@ -272,9 +272,9 @@ class Ui_MainWindow(object):
 "}")
         icon1 = QIcon()
         icon1.addFile(u":/icons/done_white_24dp.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton.setIcon(icon1)
+        self.sold_button.setIcon(icon1)
 
-        self.horizontalLayout_7.addWidget(self.pushButton)
+        self.horizontalLayout_7.addWidget(self.sold_button)
 
         self.delete_button = QPushButton(self.centralwidget)
         self.delete_button.setObjectName(u"delete_button")
@@ -361,7 +361,7 @@ class Ui_MainWindow(object):
         self.label_17.setText(QCoreApplication.translate("MainWindow", u"Chart", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.yearly), QCoreApplication.translate("MainWindow", u"Yearly", None))
         self.add_button.setText(QCoreApplication.translate("MainWindow", u"Add", None))
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Sold", None))
+        self.sold_button.setText(QCoreApplication.translate("MainWindow", u"Sold", None))
         self.delete_button.setText(QCoreApplication.translate("MainWindow", u"Delete", None))
         ___qtablewidgetitem = self.table_items_view.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"Name", None));
