@@ -66,11 +66,8 @@ class DataBase():
 
         return sell_price_rub, sell_price_usdt
 
-    def add_item(self, item: dict, count: int):
-        buy_price_rub = 0
-        buy_price_usdt = 0
-        sell_price_rub = 0
-        sell_price_usdt = 0
+    @staticmethod
+    def count_buy_price(self, item: dict) -> tuple:
         match item['buy_currency']:
             case 'usdt':
                 buy_price_usdt = item['buy_price']
@@ -97,6 +94,14 @@ class DataBase():
                 response = requests.get('https://api.binance.com/api/v3/ticker/price',
                                         params={'symbol': 'ETHUSDT'}).json()
                 buy_price_usdt = (item['buy_price'] * Decimal(response['price'])).quantize(Decimal('1.00'))
+
+        return buy_price_rub, buy_price_usdt
+
+    def add_item(self, item: dict, count: int):
+
+        sell_price_rub = 0
+        sell_price_usdt = 0
+        buy_price_rub, buy_price_usdt = self.count_buy_price(self, item)
         if item['sell_price'] is not None:
             sell_price_rub, sell_price_usdt = self.count_sell_price(self, item)
 
@@ -125,11 +130,20 @@ class DataBase():
         current = self.cursor.execute("""SELECT * FROM items WHERE ROWID = (:id)""", item).fetchone()
         income_rub = Decimal(current[7])
         income_usd = Decimal(current[8])
-        sell_price_rub, sell_price_usdt = self.count_sell_price(self, item)
+        item['buy_price'] = current[1]
+        item['buy_currency'] = current[2]
 
-        item['income_rub'] = str(sell_price_rub + income_rub)
-        item['income_usd'] = str(sell_price_usdt + income_usd)
-        # TODO: if sell price wasnt 0 need to count income differently
+        sell_price = Decimal(current[3])
+        sell_price_rub, sell_price_usdt = self.count_sell_price(self, item)
+        if sell_price != 0:
+            buy_price_rub, buy_price_usdt = self.count_buy_price(self, item)
+            item['income_rub'] = str(sell_price_rub - buy_price_rub)
+            item['income_usd'] = str(sell_price_usdt - buy_price_usdt)
+        else:
+
+            item['income_rub'] = str(sell_price_rub + income_rub)
+            item['income_usd'] = str(sell_price_usdt + income_usd)
+
         item['sell_price'] = str(item['sell_price'])
         self.cursor.execute(
             """UPDATE items SET sell_price = :sell_price, sell_date = :sell_date, sell_currency = :sell_currency, income_rub = :income_rub, 
