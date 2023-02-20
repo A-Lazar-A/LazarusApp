@@ -15,13 +15,13 @@ class SoldDialogWindow(QDialog):
         self.selected = selected
         self.ui.setupUi(self)
         self.ui.sold_date_ui.setDate(date.today())
+        self.setWindowTitle(self.mainwindow.ui.table_items_view.item(self.selected[0].row(), 0).text())
         self.ui.sold_dialog_button.clicked.connect(self.sold_item)
-        # TODO: Change dialog title to item name
+
 
     def sold_item(self):
         db = DataBase()
 
-        sell_date = self.ui.sold_date_ui.date().toString('yyyy-MM-dd')
         item = {
             'id': self.mainwindow.ui.table_items_view.item(self.selected[0].row(), 7).text(),
             'sell_price': Decimal(self.ui.sold_price_ui.text().replace(',', '.')),
