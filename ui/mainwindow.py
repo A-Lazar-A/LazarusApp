@@ -35,7 +35,7 @@ class MainWindow(QMainWindow):
             self.ui.table_items_view.insertRow(row_number)
             for colum, data in enumerate(row_data):
                 self.ui.table_items_view.setItem(row_number, colum, QTableWidgetItem(data))
-                if colum == 5 or colum == 6:
+                if colum == 7 or colum == 8:
                     if float(data[:-1]) >= 0:
                         self.ui.table_items_view.item(row_number, colum).setBackground(QColor(87, 227, 137, 50))
                     else:
@@ -49,7 +49,7 @@ class MainWindow(QMainWindow):
         db = DataBase()
         selected = self.ui.table_items_view.selectedIndexes()
         for sel in selected:
-            rowid = self.ui.table_items_view.item(sel.row(), 7).text()
+            rowid = self.ui.table_items_view.item(sel.row(), 9).text()
             db.delete_item(rowid)
         self.refresh_table()
         self.refresh_weekly()

@@ -300,8 +300,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.addLayout(self.horizontalLayout_7)
 
         self.table_items_view = QTableWidget(self.centralwidget)
-        if (self.table_items_view.columnCount() < 7):
-            self.table_items_view.setColumnCount(7)
+        if (self.table_items_view.columnCount() < 9):
+            self.table_items_view.setColumnCount(9)
         __qtablewidgetitem = QTableWidgetItem()
         self.table_items_view.setHorizontalHeaderItem(0, __qtablewidgetitem)
         __qtablewidgetitem1 = QTableWidgetItem()
@@ -316,6 +316,10 @@ class Ui_MainWindow(object):
         self.table_items_view.setHorizontalHeaderItem(5, __qtablewidgetitem5)
         __qtablewidgetitem6 = QTableWidgetItem()
         self.table_items_view.setHorizontalHeaderItem(6, __qtablewidgetitem6)
+        __qtablewidgetitem7 = QTableWidgetItem()
+        self.table_items_view.setHorizontalHeaderItem(7, __qtablewidgetitem7)
+        __qtablewidgetitem8 = QTableWidgetItem()
+        self.table_items_view.setHorizontalHeaderItem(8, __qtablewidgetitem8)
         self.table_items_view.setObjectName(u"table_items_view")
         self.table_items_view.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.table_items_view.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
@@ -374,8 +378,12 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem4 = self.table_items_view.horizontalHeaderItem(4)
         ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"Sell Date", None));
         ___qtablewidgetitem5 = self.table_items_view.horizontalHeaderItem(5)
-        ___qtablewidgetitem5.setText(QCoreApplication.translate("MainWindow", u"Income RUB", None));
+        ___qtablewidgetitem5.setText(QCoreApplication.translate("MainWindow", u"Creator Royalty", None));
         ___qtablewidgetitem6 = self.table_items_view.horizontalHeaderItem(6)
-        ___qtablewidgetitem6.setText(QCoreApplication.translate("MainWindow", u"Income USD", None));
+        ___qtablewidgetitem6.setText(QCoreApplication.translate("MainWindow", u"Market Royalty", None));
+        ___qtablewidgetitem7 = self.table_items_view.horizontalHeaderItem(7)
+        ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"Income RUB", None));
+        ___qtablewidgetitem8 = self.table_items_view.horizontalHeaderItem(8)
+        ___qtablewidgetitem8.setText(QCoreApplication.translate("MainWindow", u"Income USD", None));
     # retranslateUi
 

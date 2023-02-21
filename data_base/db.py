@@ -29,6 +29,8 @@ class DataBase():
         sell_currency TEXT,
         buy_date DATE NOT NULL,
         sell_date DATE,
+        creator_royalty DECIMAL(3,2),
+        market_royalty DECIMAL(3,2),
         income_rub DECIMAL(10,2),
         income_usd DECIMAL(10,2)
         
@@ -42,29 +44,31 @@ class DataBase():
                 sell_price_usdt = item['sell_price']
                 response = requests.get('https://api.binance.com/api/v3/ticker/price',
                                         params={'symbol': 'USDTRUB'}).json()
-                sell_price_rub = (item['sell_price'] * Decimal(response['price'])).quantize(Decimal('1.00'))
+                sell_price_rub = item['sell_price'] * Decimal(response['price'])
             case 'rub':
                 sell_price_rub = item['sell_price']
                 response = requests.get('https://api.binance.com/api/v3/ticker/price',
                                         params={'symbol': 'USDTRUB'}).json()
-                sell_price_usdt = (item['sell_price'] / Decimal(response['price'])).quantize(Decimal('1.00'))
+                sell_price_usdt = item['sell_price'] / Decimal(response['price'])
             case 'ada':
 
                 response = requests.get('https://api.binance.com/api/v3/ticker/price',
                                         params={'symbol': 'ADARUB'}).json()
-                sell_price_rub = (item['sell_price'] * Decimal(response['price'])).quantize(Decimal('1.00'))
+                sell_price_rub = item['sell_price'] * Decimal(response['price'])
                 response = requests.get('https://api.binance.com/api/v3/ticker/price',
                                         params={'symbol': 'ADAUSDT'}).json()
-                sell_price_usdt = (item['sell_price'] * Decimal(response['price'])).quantize(Decimal('1.00'))
+                sell_price_usdt = item['sell_price'] * Decimal(response['price'])
             case 'eth':
                 response = requests.get('https://api.binance.com/api/v3/ticker/price',
                                         params={'symbol': 'ETHRUB'}).json()
-                sell_price_rub = (item['sell_price'] * Decimal(response['price'])).quantize(Decimal('1.00'))
+                sell_price_rub = item['sell_price'] * Decimal(response['price'])
                 response = requests.get('https://api.binance.com/api/v3/ticker/price',
                                         params={'symbol': 'ETHUSDT'}).json()
-                sell_price_usdt = (item['sell_price'] * Decimal(response['price'])).quantize(Decimal('1.00'))
-
-        return sell_price_rub, sell_price_usdt
+                sell_price_usdt = item['sell_price'] * Decimal(response['price'])
+        royalty = 1 - item['creator_royalty'] / 100 - item['market_royalty'] / 100
+        sell_price_rub *= royalty
+        sell_price_usdt *= royalty
+        return Decimal(sell_price_rub).quantize(Decimal("1.00")), Decimal(sell_price_usdt).quantize(Decimal("1.00"))
 
     @staticmethod
     def count_buy_price(self, item: dict) -> tuple:
@@ -104,15 +108,17 @@ class DataBase():
         buy_price_rub, buy_price_usdt = self.count_buy_price(self, item)
         if item['sell_price'] is not None:
             sell_price_rub, sell_price_usdt = self.count_sell_price(self, item)
-
+        item['creator_royalty'] = str(item['creator_royalty'])
+        item['market_royalty'] = str(item['market_royalty'])
         item['income_rub'] = str(sell_price_rub - buy_price_rub)
-        item['income_usd'] = str(sell_price_usdt - buy_price_usdt)
+        item['income_usd'] = str(sell_price_usdt- buy_price_usdt)
         item['buy_price'] = str(item['buy_price'])
         item['sell_price'] = str(item['sell_price'])
         for _ in range(count):
             self.cursor.execute(
                 """INSERT INTO items VALUES(:name, 
-                :buy_price,:buy_currency,:sell_price,:sell_currency,:buy_date,:sell_date,:income_rub,:income_usd)""",
+                :buy_price, :buy_currency, :sell_price, :sell_currency, :buy_date, :sell_date,
+                :creator_royalty, :market_royalty, :income_rub, :income_usd)""",
                 item)
             self.connection.commit()
 
@@ -128,17 +134,16 @@ class DataBase():
 
     def update_sold_item(self, item: dict):
         current = self.cursor.execute("""SELECT * FROM items WHERE ROWID = (:id)""", item).fetchone()
-        income_rub = Decimal(current[7])
-        income_usd = Decimal(current[8])
+        income_rub = Decimal(current[-2])
+        income_usd = Decimal(current[-1])
         item['buy_price'] = current[1]
         item['buy_currency'] = current[2]
-
         sell_price = Decimal(current[3])
         sell_price_rub, sell_price_usdt = self.count_sell_price(self, item)
         if sell_price != 0:
             buy_price_rub, buy_price_usdt = self.count_buy_price(self, item)
             item['income_rub'] = str(sell_price_rub - buy_price_rub)
-            item['income_usd'] = str(sell_price_usdt - buy_price_usdt)
+            item['income_usd'] = str(sell_price_usdt- buy_price_usdt)
         else:
 
             item['income_rub'] = str(sell_price_rub + income_rub)
@@ -146,7 +151,8 @@ class DataBase():
 
         item['sell_price'] = str(item['sell_price'])
         self.cursor.execute(
-            """UPDATE items SET sell_price = :sell_price, sell_date = :sell_date, sell_currency = :sell_currency, income_rub = :income_rub, 
+            """UPDATE items SET sell_price = :sell_price, sell_date = :sell_date, sell_currency = :sell_currency, 
+            income_rub = :income_rub, creator_royalty = :creator_royalty, market_royalty = :market_royalty,
             income_usd = :income_usd WHERE ROWID = (:id)""",
             item)
         self.connection.commit()
@@ -176,9 +182,11 @@ class DataBase():
                     item.append(str(row[3]) + ' Ξ')
             item.append(date.fromisoformat(row[5]).strftime('%d.%m.%Y'))
             item.append(date.fromisoformat(row[6]).strftime('%d.%m.%Y'))
-            item.append(str(row[7]) + ' ₽')
-            item.append(str(row[8]) + ' $')
-            item.append(str(row[9]))
+            item.append(f'{row[-5]}% ({row[3] * row[-5] / 100} {item[-3][-1]})')
+            item.append(f'{row[-4]}% ({row[3] * row[-4] / 100} {item[-4][-1]})')
+            item.append(str(row[-3]) + ' ₽')
+            item.append(str(row[-2]) + ' $')
+            item.append(str(row[-1]))
 
             answer.append(item)
         return answer
@@ -202,8 +210,8 @@ class DataBase():
     def calc_income(self, items):
         answ = [0, 0]
         for item in items:
-            answ[0] += Decimal(item[7]).quantize(Decimal('1.00'))
-            answ[1] += Decimal(item[8]).quantize(Decimal('1.00'))
+            answ[0] += Decimal(item[-2]).quantize(Decimal('1.00'))
+            answ[1] += Decimal(item[-1]).quantize(Decimal('1.00'))
         return answ
 
     def get_all(self):

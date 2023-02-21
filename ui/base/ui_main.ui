@@ -541,6 +541,16 @@ background-color: rgba(255, 255, 255, 50);
       </column>
       <column>
        <property name="text">
+        <string>Creator Royalty</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Market Royalty</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
         <string>Income RUB</string>
        </property>
       </column>

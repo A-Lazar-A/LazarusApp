@@ -24,16 +24,19 @@ class Ui_sold_dialog(object):
     def setupUi(self, sold_dialog):
         if not sold_dialog.objectName():
             sold_dialog.setObjectName(u"sold_dialog")
-        sold_dialog.resize(445, 306)
-        sold_dialog.setStyleSheet(u"background-color: rgb(31, 31, 31);\n"
-"color: rgb(255, 255, 255);")
-        self.verticalLayout = QVBoxLayout(sold_dialog)
-        self.verticalLayout.setObjectName(u"verticalLayout")
-        self.frame = QFrame(sold_dialog)
-        self.frame.setObjectName(u"frame")
+        sold_dialog.resize(530, 260)
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(sold_dialog.sizePolicy().hasHeightForWidth())
+        sold_dialog.setSizePolicy(sizePolicy)
+        sold_dialog.setMinimumSize(QSize(530, 0))
+        sold_dialog.setStyleSheet(u"background-color: rgb(31, 31, 31);\n"
+"color: rgb(255, 255, 255);")
+        self.horizontalLayout_3 = QHBoxLayout(sold_dialog)
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.frame = QFrame(sold_dialog)
+        self.frame.setObjectName(u"frame")
         sizePolicy.setHeightForWidth(self.frame.sizePolicy().hasHeightForWidth())
         self.frame.setSizePolicy(sizePolicy)
         self.frame.setStyleSheet(u"background-color: rgba(255, 255, 255, 30);\n"
@@ -60,6 +63,7 @@ class Ui_sold_dialog(object):
 "")
         self.verticalLayout_4 = QVBoxLayout(self.sell_frame)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.verticalLayout_4.setContentsMargins(0, -1, -1, -1)
         self.label_4 = QLabel(self.sell_frame)
         self.label_4.setObjectName(u"label_4")
         self.label_4.setMaximumSize(QSize(16777215, 20))
@@ -131,11 +135,69 @@ class Ui_sold_dialog(object):
 
         self.horizontalLayout_5.addWidget(self.sell_frame)
 
+        self.frame_3 = QFrame(self.frame)
+        self.frame_3.setObjectName(u"frame_3")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Maximum)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.frame_3.sizePolicy().hasHeightForWidth())
+        self.frame_3.setSizePolicy(sizePolicy2)
+        self.frame_3.setStyleSheet(u"QFrame{\n"
+"background-color: none;\n"
+"border:none;\n"
+"}\n"
+"")
+        self.frame_3.setFrameShape(QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_3 = QVBoxLayout(self.frame_3)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.label = QLabel(self.frame_3)
+        self.label.setObjectName(u"label")
+
+        self.verticalLayout_3.addWidget(self.label)
+
+        self.doubleSpinBox = QDoubleSpinBox(self.frame_3)
+        self.doubleSpinBox.setObjectName(u"doubleSpinBox")
+        self.doubleSpinBox.setStyleSheet(u"font-size: 20pt;")
+
+        self.verticalLayout_3.addWidget(self.doubleSpinBox)
+
+
+        self.horizontalLayout_5.addWidget(self.frame_3)
+
+        self.frame_2 = QFrame(self.frame)
+        self.frame_2.setObjectName(u"frame_2")
+        sizePolicy2.setHeightForWidth(self.frame_2.sizePolicy().hasHeightForWidth())
+        self.frame_2.setSizePolicy(sizePolicy2)
+        self.frame_2.setStyleSheet(u"QFrame{\n"
+"background-color: none;\n"
+"border:none;\n"
+"}\n"
+"")
+        self.frame_2.setFrameShape(QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_6 = QVBoxLayout(self.frame_2)
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.verticalLayout_6.setContentsMargins(-1, -1, 0, -1)
+        self.label_3 = QLabel(self.frame_2)
+        self.label_3.setObjectName(u"label_3")
+
+        self.verticalLayout_6.addWidget(self.label_3)
+
+        self.doubleSpinBox_2 = QDoubleSpinBox(self.frame_2)
+        self.doubleSpinBox_2.setObjectName(u"doubleSpinBox_2")
+        self.doubleSpinBox_2.setStyleSheet(u"font-size: 20pt;")
+
+        self.verticalLayout_6.addWidget(self.doubleSpinBox_2)
+
+
+        self.horizontalLayout_5.addWidget(self.frame_2)
+
 
         self.verticalLayout_11.addLayout(self.horizontalLayout_5)
 
-        self.horizontalLayout_4 = QHBoxLayout()
-        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.verticalLayout_2 = QVBoxLayout()
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.sell_date_frame = QFrame(self.frame)
         self.sell_date_frame.setObjectName(u"sell_date_frame")
         sizePolicy1.setHeightForWidth(self.sell_date_frame.sizePolicy().hasHeightForWidth())
@@ -145,17 +207,13 @@ class Ui_sold_dialog(object):
 "border:none;\n"
 "}\n"
 "")
-        self.verticalLayout_2 = QVBoxLayout(self.sell_date_frame)
-        self.verticalLayout_2.setSpacing(0)
-        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.label_2 = QLabel(self.sell_date_frame)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setMaximumSize(QSize(16777215, 20))
-        self.label_2.setStyleSheet(u"background-color: none;\n"
-"border: none;\n"
-"margin-left: 2px;")
+        self.verticalLayout = QVBoxLayout(self.sell_date_frame)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout.setContentsMargins(0, -1, 0, -1)
+        self.label_5 = QLabel(self.sell_date_frame)
+        self.label_5.setObjectName(u"label_5")
 
-        self.verticalLayout_2.addWidget(self.label_2)
+        self.verticalLayout.addWidget(self.label_5)
 
         self.sold_date_ui = QDateEdit(self.sell_date_frame)
         self.sold_date_ui.setObjectName(u"sold_date_ui")
@@ -182,29 +240,13 @@ class Ui_sold_dialog(object):
 "}")
         self.sold_date_ui.setCalendarPopup(False)
 
-        self.verticalLayout_2.addWidget(self.sold_date_ui)
+        self.verticalLayout.addWidget(self.sold_date_ui)
 
 
-        self.horizontalLayout_4.addWidget(self.sell_date_frame)
+        self.verticalLayout_2.addWidget(self.sell_date_frame)
 
 
-        self.verticalLayout_11.addLayout(self.horizontalLayout_4)
-
-        self.q_frame = QFrame(self.frame)
-        self.q_frame.setObjectName(u"q_frame")
-        sizePolicy1.setHeightForWidth(self.q_frame.sizePolicy().hasHeightForWidth())
-        self.q_frame.setSizePolicy(sizePolicy1)
-        self.q_frame.setStyleSheet(u"QFrame{\n"
-"background-color: none;\n"
-"border:none;\n"
-"}\n"
-"")
-        self.verticalLayout_5 = QVBoxLayout(self.q_frame)
-        self.verticalLayout_5.setSpacing(6)
-        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
-        self.verticalLayout_5.setContentsMargins(1, 1, 1, 1)
-
-        self.verticalLayout_11.addWidget(self.q_frame)
+        self.verticalLayout_11.addLayout(self.verticalLayout_2)
 
         self.sold_dialog_button = QPushButton(self.frame)
         self.sold_dialog_button.setObjectName(u"sold_dialog_button")
@@ -224,7 +266,7 @@ class Ui_sold_dialog(object):
         self.verticalLayout_11.addWidget(self.sold_dialog_button)
 
 
-        self.verticalLayout.addWidget(self.frame)
+        self.horizontalLayout_3.addWidget(self.frame)
 
 
         self.retranslateUi(sold_dialog)
@@ -240,7 +282,9 @@ class Ui_sold_dialog(object):
         self.sold_currency_ui.setItemText(2, QCoreApplication.translate("sold_dialog", u"ADA", None))
         self.sold_currency_ui.setItemText(3, QCoreApplication.translate("sold_dialog", u"ETH", None))
 
-        self.label_2.setText(QCoreApplication.translate("sold_dialog", u"Sell Date", None))
+        self.label.setText(QCoreApplication.translate("sold_dialog", u"Creator Royalty %", None))
+        self.label_3.setText(QCoreApplication.translate("sold_dialog", u"Market Royalty %", None))
+        self.label_5.setText(QCoreApplication.translate("sold_dialog", u"Sale Date", None))
         self.sold_dialog_button.setText(QCoreApplication.translate("sold_dialog", u"Sold", None))
     # retranslateUi
 

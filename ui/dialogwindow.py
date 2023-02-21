@@ -32,6 +32,8 @@ class DialogWindow(QDialog):
             'sell_currency': self.ui.sell_currency_ui.currentText().lower(),
             'buy_date': self.ui.buy_date_ui.date().toString('yyyy-MM-dd'),
             'sell_date': self.ui.sell_date_ui.date().toString('yyyy-MM-dd'),
+            'creator_royalty': Decimal(self.ui.creator_royalty_ui.text().replace(',', '.')),
+            'market_royalty': Decimal(self.ui.market_royalty_ui.text().replace(',', '.')),
             'income_rub': None,
             'income_usd': None,
         }

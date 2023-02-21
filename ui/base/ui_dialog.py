@@ -24,18 +24,26 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
-        Dialog.resize(872, 321)
+        Dialog.resize(744, 321)
+        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(Dialog.sizePolicy().hasHeightForWidth())
+        Dialog.setSizePolicy(sizePolicy)
+        Dialog.setMinimumSize(QSize(744, 0))
         Dialog.setStyleSheet(u"background-color: rgb(31, 31, 31);\n"
 "color: rgb(255, 255, 255);")
         self.horizontalLayout_2 = QHBoxLayout(Dialog)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.frame = QFrame(Dialog)
         self.frame.setObjectName(u"frame")
-        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Maximum)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.frame.sizePolicy().hasHeightForWidth())
-        self.frame.setSizePolicy(sizePolicy)
+        self.frame.setEnabled(True)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.frame.sizePolicy().hasHeightForWidth())
+        self.frame.setSizePolicy(sizePolicy1)
+        self.frame.setMinimumSize(QSize(0, 0))
         self.frame.setStyleSheet(u"background-color: rgba(255, 255, 255, 30);\n"
 "border: 1px solid rgba(255, 255, 255, 40);\n"
 "border-radius: 5px;")
@@ -45,9 +53,15 @@ class Ui_Dialog(object):
         self.verticalLayout_11.setSpacing(6)
         self.verticalLayout_11.setObjectName(u"verticalLayout_11")
         self.horizontalLayout_4 = QHBoxLayout()
+        self.horizontalLayout_4.setSpacing(0)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.item_name = QLineEdit(self.frame)
         self.item_name.setObjectName(u"item_name")
+        sizePolicy2 = QSizePolicy(QSizePolicy.MinimumExpanding, QSizePolicy.Fixed)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.item_name.sizePolicy().hasHeightForWidth())
+        self.item_name.setSizePolicy(sizePolicy2)
         font = QFont()
         font.setPointSize(20)
         self.item_name.setFont(font)
@@ -57,8 +71,11 @@ class Ui_Dialog(object):
 
         self.purch_date_frame = QFrame(self.frame)
         self.purch_date_frame.setObjectName(u"purch_date_frame")
-        sizePolicy.setHeightForWidth(self.purch_date_frame.sizePolicy().hasHeightForWidth())
-        self.purch_date_frame.setSizePolicy(sizePolicy)
+        sizePolicy3 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Maximum)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.purch_date_frame.sizePolicy().hasHeightForWidth())
+        self.purch_date_frame.setSizePolicy(sizePolicy3)
         self.purch_date_frame.setStyleSheet(u"QFrame{\n"
 "background-color: none;\n"
 "border:none;\n"
@@ -109,8 +126,8 @@ class Ui_Dialog(object):
 
         self.sell_date_frame = QFrame(self.frame)
         self.sell_date_frame.setObjectName(u"sell_date_frame")
-        sizePolicy.setHeightForWidth(self.sell_date_frame.sizePolicy().hasHeightForWidth())
-        self.sell_date_frame.setSizePolicy(sizePolicy)
+        sizePolicy3.setHeightForWidth(self.sell_date_frame.sizePolicy().hasHeightForWidth())
+        self.sell_date_frame.setSizePolicy(sizePolicy3)
         self.sell_date_frame.setStyleSheet(u"QFrame{\n"
 "background-color: none;\n"
 "border:none;\n"
@@ -119,6 +136,7 @@ class Ui_Dialog(object):
         self.verticalLayout_2 = QVBoxLayout(self.sell_date_frame)
         self.verticalLayout_2.setSpacing(0)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.verticalLayout_2.setContentsMargins(-1, -1, 0, -1)
         self.label_2 = QLabel(self.sell_date_frame)
         self.label_2.setObjectName(u"label_2")
         self.label_2.setMaximumSize(QSize(16777215, 20))
@@ -162,11 +180,16 @@ class Ui_Dialog(object):
         self.verticalLayout_11.addLayout(self.horizontalLayout_4)
 
         self.horizontalLayout_5 = QHBoxLayout()
+        self.horizontalLayout_5.setSpacing(0)
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
         self.price_frame = QFrame(self.frame)
         self.price_frame.setObjectName(u"price_frame")
-        sizePolicy.setHeightForWidth(self.price_frame.sizePolicy().hasHeightForWidth())
-        self.price_frame.setSizePolicy(sizePolicy)
+        sizePolicy4 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Maximum)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.price_frame.sizePolicy().hasHeightForWidth())
+        self.price_frame.setSizePolicy(sizePolicy4)
+        self.price_frame.setMinimumSize(QSize(211, 0))
         self.price_frame.setStyleSheet(u"QFrame{\n"
 "background-color: none;\n"
 "border:none;\n"
@@ -187,6 +210,12 @@ class Ui_Dialog(object):
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.buy_price_ui = QDoubleSpinBox(self.price_frame)
         self.buy_price_ui.setObjectName(u"buy_price_ui")
+        sizePolicy5 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.buy_price_ui.sizePolicy().hasHeightForWidth())
+        self.buy_price_ui.setSizePolicy(sizePolicy5)
+        self.buy_price_ui.setMinimumSize(QSize(90, 0))
         self.buy_price_ui.setFont(font)
         self.buy_price_ui.setStyleSheet(u"font-size: 20pt;\n"
 "")
@@ -203,6 +232,8 @@ class Ui_Dialog(object):
         self.buy_currency_ui.addItem("")
         self.buy_currency_ui.addItem("")
         self.buy_currency_ui.setObjectName(u"buy_currency_ui")
+        sizePolicy5.setHeightForWidth(self.buy_currency_ui.sizePolicy().hasHeightForWidth())
+        self.buy_currency_ui.setSizePolicy(sizePolicy5)
         self.buy_currency_ui.setMinimumSize(QSize(95, 0))
         self.buy_currency_ui.setFont(font)
         self.buy_currency_ui.setStyleSheet(u"QComboBox {\n"
@@ -246,8 +277,9 @@ class Ui_Dialog(object):
 
         self.sell_frame = QFrame(self.frame)
         self.sell_frame.setObjectName(u"sell_frame")
-        sizePolicy.setHeightForWidth(self.sell_frame.sizePolicy().hasHeightForWidth())
-        self.sell_frame.setSizePolicy(sizePolicy)
+        sizePolicy4.setHeightForWidth(self.sell_frame.sizePolicy().hasHeightForWidth())
+        self.sell_frame.setSizePolicy(sizePolicy4)
+        self.sell_frame.setMinimumSize(QSize(211, 0))
         self.sell_frame.setStyleSheet(u"QFrame{\n"
 "background-color: none;\n"
 "border:none;\n"
@@ -257,6 +289,11 @@ class Ui_Dialog(object):
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.label_4 = QLabel(self.sell_frame)
         self.label_4.setObjectName(u"label_4")
+        sizePolicy6 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.label_4.sizePolicy().hasHeightForWidth())
+        self.label_4.setSizePolicy(sizePolicy6)
         self.label_4.setMaximumSize(QSize(16777215, 20))
         self.label_4.setStyleSheet(u"background-color: none;\n"
 "border: none;")
@@ -267,6 +304,9 @@ class Ui_Dialog(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.sell_price_ui = QDoubleSpinBox(self.sell_frame)
         self.sell_price_ui.setObjectName(u"sell_price_ui")
+        sizePolicy5.setHeightForWidth(self.sell_price_ui.sizePolicy().hasHeightForWidth())
+        self.sell_price_ui.setSizePolicy(sizePolicy5)
+        self.sell_price_ui.setMinimumSize(QSize(90, 0))
         self.sell_price_ui.setStyleSheet(u"font-size: 20pt;\n"
 "")
         self.sell_price_ui.setButtonSymbols(QAbstractSpinBox.NoButtons)
@@ -283,6 +323,8 @@ class Ui_Dialog(object):
         self.sell_currency_ui.addItem("")
         self.sell_currency_ui.addItem("")
         self.sell_currency_ui.setObjectName(u"sell_currency_ui")
+        sizePolicy5.setHeightForWidth(self.sell_currency_ui.sizePolicy().hasHeightForWidth())
+        self.sell_currency_ui.setSizePolicy(sizePolicy5)
         self.sell_currency_ui.setMinimumSize(QSize(95, 0))
         self.sell_currency_ui.setFont(font)
         self.sell_currency_ui.setStyleSheet(u"QComboBox {\n"
@@ -324,13 +366,84 @@ class Ui_Dialog(object):
 
         self.horizontalLayout_5.addWidget(self.sell_frame)
 
+        self.frame_2 = QFrame(self.frame)
+        self.frame_2.setObjectName(u"frame_2")
+        sizePolicy4.setHeightForWidth(self.frame_2.sizePolicy().hasHeightForWidth())
+        self.frame_2.setSizePolicy(sizePolicy4)
+        self.frame_2.setStyleSheet(u"QFrame{\n"
+"background-color: none;\n"
+"border:none;\n"
+"}\n"
+"")
+        self.frame_2.setFrameShape(QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_6 = QVBoxLayout(self.frame_2)
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.label_6 = QLabel(self.frame_2)
+        self.label_6.setObjectName(u"label_6")
+        sizePolicy7 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Preferred)
+        sizePolicy7.setHorizontalStretch(0)
+        sizePolicy7.setVerticalStretch(0)
+        sizePolicy7.setHeightForWidth(self.label_6.sizePolicy().hasHeightForWidth())
+        self.label_6.setSizePolicy(sizePolicy7)
+
+        self.verticalLayout_6.addWidget(self.label_6)
+
+        self.creator_royalty_ui = QDoubleSpinBox(self.frame_2)
+        self.creator_royalty_ui.setObjectName(u"creator_royalty_ui")
+        sizePolicy5.setHeightForWidth(self.creator_royalty_ui.sizePolicy().hasHeightForWidth())
+        self.creator_royalty_ui.setSizePolicy(sizePolicy5)
+        self.creator_royalty_ui.setStyleSheet(u"font-size: 20pt;")
+        self.creator_royalty_ui.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.creator_royalty_ui.setButtonSymbols(QAbstractSpinBox.NoButtons)
+
+        self.verticalLayout_6.addWidget(self.creator_royalty_ui)
+
+
+        self.horizontalLayout_5.addWidget(self.frame_2)
+
+        self.frame_3 = QFrame(self.frame)
+        self.frame_3.setObjectName(u"frame_3")
+        sizePolicy4.setHeightForWidth(self.frame_3.sizePolicy().hasHeightForWidth())
+        self.frame_3.setSizePolicy(sizePolicy4)
+        self.frame_3.setLayoutDirection(Qt.LeftToRight)
+        self.frame_3.setStyleSheet(u"QFrame{\n"
+"background-color: none;\n"
+"border:none;\n"
+"}\n"
+"")
+        self.frame_3.setFrameShape(QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_7 = QVBoxLayout(self.frame_3)
+        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.verticalLayout_7.setContentsMargins(-1, -1, 0, -1)
+        self.label_7 = QLabel(self.frame_3)
+        self.label_7.setObjectName(u"label_7")
+        sizePolicy7.setHeightForWidth(self.label_7.sizePolicy().hasHeightForWidth())
+        self.label_7.setSizePolicy(sizePolicy7)
+
+        self.verticalLayout_7.addWidget(self.label_7)
+
+        self.market_royalty_ui = QDoubleSpinBox(self.frame_3)
+        self.market_royalty_ui.setObjectName(u"market_royalty_ui")
+        sizePolicy5.setHeightForWidth(self.market_royalty_ui.sizePolicy().hasHeightForWidth())
+        self.market_royalty_ui.setSizePolicy(sizePolicy5)
+        self.market_royalty_ui.setStyleSheet(u"font-size: 20pt;")
+        self.market_royalty_ui.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.market_royalty_ui.setButtonSymbols(QAbstractSpinBox.NoButtons)
+
+        self.verticalLayout_7.addWidget(self.market_royalty_ui)
+
+
+        self.horizontalLayout_5.addWidget(self.frame_3)
+
 
         self.verticalLayout_11.addLayout(self.horizontalLayout_5)
 
         self.q_frame = QFrame(self.frame)
         self.q_frame.setObjectName(u"q_frame")
-        sizePolicy.setHeightForWidth(self.q_frame.sizePolicy().hasHeightForWidth())
-        self.q_frame.setSizePolicy(sizePolicy)
+        sizePolicy3.setHeightForWidth(self.q_frame.sizePolicy().hasHeightForWidth())
+        self.q_frame.setSizePolicy(sizePolicy3)
         self.q_frame.setStyleSheet(u"QFrame{\n"
 "background-color: none;\n"
 "border:none;\n"
@@ -403,6 +516,8 @@ class Ui_Dialog(object):
         self.sell_currency_ui.setItemText(2, QCoreApplication.translate("Dialog", u"ADA", None))
         self.sell_currency_ui.setItemText(3, QCoreApplication.translate("Dialog", u"ETH", None))
 
+        self.label_6.setText(QCoreApplication.translate("Dialog", u"Creator Royalty %", None))
+        self.label_7.setText(QCoreApplication.translate("Dialog", u"Market Royalty %", None))
         self.label_5.setText(QCoreApplication.translate("Dialog", u"Quantity", None))
         self.add_dialog_button.setText(QCoreApplication.translate("Dialog", u"Add", None))
     # retranslateUi

@@ -18,7 +18,7 @@ class SoldDialogWindow(QDialog):
         self.setWindowTitle(self.mainwindow.ui.table_items_view.item(self.selected[0].row(), 0).text())
         self.ui.sold_dialog_button.clicked.connect(self.sold_item)
 
-
+# TODO: Add royalties and autofill off fields
     def sold_item(self):
         db = DataBase()
 
