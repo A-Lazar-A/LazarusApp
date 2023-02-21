@@ -1,5 +1,6 @@
 from PySide6.QtWidgets import QMainWindow, QDialog, QTableWidgetItem, QHeaderView
 from PySide6.QtGui import QColor
+from PySide6 import QtCharts
 
 from ui.base.ui_main import Ui_MainWindow
 from ui.dialogwindow import DialogWindow
@@ -17,11 +18,45 @@ class MainWindow(QMainWindow):
         self.ui.add_button.clicked.connect(self.open_add_dialog)
         self.ui.delete_button.clicked.connect(self.delete_items)
         self.ui.sold_button.clicked.connect(self.open_sold_dialog)
+
+        self.whole_chart()
+
         self.refresh_table()
         self.refresh_weekly()
         self.refresh_monthly()
         self.refresh_yearly()
         self.refresh_all_income()
+
+    def whole_chart(self):
+        set = QtCharts.QBarSet('')
+        set.setColor(QColor(57,57,57))
+        set.append([1, 2, 3, 4, 5])
+
+        series = QtCharts.QBarSeries()
+        series.append(set)
+
+
+        chart = QtCharts.QChart()
+
+        chart.addSeries(series)
+
+        chart.setAnimationOptions(QtCharts.QChart.SeriesAnimations)
+
+        categories = ['day1', 'day2', 'day3', 'day4', 'day5']
+        axis = QtCharts.QBarCategoryAxis()
+        axis.append(categories)
+        axis.setLabelsColor(QColor('white'))
+        chart.createDefaultAxes()
+        chart.setAxisX(axis, series)
+
+        chart.axisY().setLabelsColor(QColor('white'))
+        chart.legend().setVisible(False)
+        chart.layout().setContentsMargins(0, 0, 0, 0)
+        chart.setBackgroundRoundness(0)
+        chart.setBackgroundBrush(QColor(80, 80, 80))
+        # chart.setBackgroundPen(QColor('white'))
+
+        self.ui.widget.setChart(chart)
 
     def refresh_table(self):
         db = DataBase()

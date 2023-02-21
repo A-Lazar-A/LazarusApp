@@ -8,6 +8,7 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
+from PySide6.QtCharts import QChartView
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
@@ -163,6 +164,11 @@ class Ui_MainWindow(object):
 
         self.statistic_frame = QFrame(self.centralwidget)
         self.statistic_frame.setObjectName(u"statistic_frame")
+        sizePolicy.setHeightForWidth(self.statistic_frame.sizePolicy().hasHeightForWidth())
+        self.statistic_frame.setSizePolicy(sizePolicy)
+        self.statistic_frame.setMinimumSize(QSize(0, 400))
+        self.statistic_frame.setMaximumSize(QSize(16777215, 400))
+        self.statistic_frame.setSizeIncrement(QSize(0, 0))
         self.statistic_frame.setStyleSheet(u"background-color: rgba(255, 255, 255, 30);\n"
 "border: 1px solid rgba(255, 255, 255, 40);\n"
 "border-radius: 5px;")
@@ -198,9 +204,17 @@ class Ui_MainWindow(object):
         self.tabWidget.setElideMode(Qt.ElideNone)
         self.whole_time = QWidget()
         self.whole_time.setObjectName(u"whole_time")
-        self.label_14 = QLabel(self.whole_time)
-        self.label_14.setObjectName(u"label_14")
-        self.label_14.setGeometry(QRect(90, 110, 67, 17))
+        self.horizontalLayout_8 = QHBoxLayout(self.whole_time)
+        self.horizontalLayout_8.setSpacing(0)
+        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
+        self.horizontalLayout_8.setContentsMargins(1, 0, 1, 0)
+        self.widget = QChartView(self.whole_time)
+        self.widget.setObjectName(u"widget")
+        self.widget.setStyleSheet(u"background-color: rgb(129, 61, 156);\n"
+"border: none;")
+
+        self.horizontalLayout_8.addWidget(self.widget)
+
         self.tabWidget.addTab(self.whole_time, "")
         self.weekly = QWidget()
         self.weekly.setObjectName(u"weekly")
@@ -356,7 +370,6 @@ class Ui_MainWindow(object):
         self.yearly_income_rub.setText(QCoreApplication.translate("MainWindow", u"rub", None))
         self.yearly_income_usd.setText(QCoreApplication.translate("MainWindow", u"usd", None))
         self.label_13.setText(QCoreApplication.translate("MainWindow", u"Statistic", None))
-        self.label_14.setText(QCoreApplication.translate("MainWindow", u"Chart", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.whole_time), QCoreApplication.translate("MainWindow", u"Whole Time", None))
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"Chart", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.weekly), QCoreApplication.translate("MainWindow", u"Weekly", None))
