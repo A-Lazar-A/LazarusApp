@@ -9,17 +9,6 @@ class DataBase():
         self.connection = sqlite3.connect('data_base/LazarusApp_DB.sqlite')
         self.cursor = self.connection.cursor()
 
-    #     sqlite3.register_adapter(Decimal, self.adapt_decimal)
-    #     sqlite3.register_converter('decimal', self.convert_decimal)
-    #
-    # @staticmethod
-    # def adapt_decimal(d):
-    #     return str(d)
-    #
-    # @staticmethod
-    # def convert_decimal(s):
-    #     return Decimal(s)
-
     def create_table(self):
         self.cursor.execute("""CREATE TABLE IF NOT EXISTS items(
         name TEXT NOT NULL,
@@ -111,7 +100,7 @@ class DataBase():
         item['creator_royalty'] = str(item['creator_royalty'])
         item['market_royalty'] = str(item['market_royalty'])
         item['income_rub'] = str(sell_price_rub - buy_price_rub)
-        item['income_usd'] = str(sell_price_usdt- buy_price_usdt)
+        item['income_usd'] = str(sell_price_usdt - buy_price_usdt)
         item['buy_price'] = str(item['buy_price'])
         item['sell_price'] = str(item['sell_price'])
         for _ in range(count):
@@ -143,7 +132,7 @@ class DataBase():
         if sell_price != 0:
             buy_price_rub, buy_price_usdt = self.count_buy_price(self, item)
             item['income_rub'] = str(sell_price_rub - buy_price_rub)
-            item['income_usd'] = str(sell_price_usdt- buy_price_usdt)
+            item['income_usd'] = str(sell_price_usdt - buy_price_usdt)
         else:
 
             item['income_rub'] = str(sell_price_rub + income_rub)
@@ -182,8 +171,8 @@ class DataBase():
                     item.append(str(row[3]) + ' Ξ')
             item.append(date.fromisoformat(row[5]).strftime('%d.%m.%Y'))
             item.append(date.fromisoformat(row[6]).strftime('%d.%m.%Y'))
-            item.append(f'{row[-5]}% ({row[3] * row[-5] / 100} {item[-3][-1]})')
-            item.append(f'{row[-4]}% ({row[3] * row[-4] / 100} {item[-4][-1]})')
+            item.append(f'{row[-5]:.2f}% ({row[3] * row[-5] / 100} {item[-3][-1]})')
+            item.append(f'{row[-4]:.2f}% ({row[3] * row[-4] / 100} {item[-4][-1]})')
             item.append(str(row[-3]) + ' ₽')
             item.append(str(row[-2]) + ' $')
             item.append(str(row[-1]))
