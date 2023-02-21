@@ -156,11 +156,11 @@ class Ui_sold_dialog(object):
 
         self.verticalLayout_3.addWidget(self.label)
 
-        self.doubleSpinBox = QDoubleSpinBox(self.frame_3)
-        self.doubleSpinBox.setObjectName(u"doubleSpinBox")
-        self.doubleSpinBox.setStyleSheet(u"font-size: 20pt;")
+        self.sold_creator_royalty = QDoubleSpinBox(self.frame_3)
+        self.sold_creator_royalty.setObjectName(u"sold_creator_royalty")
+        self.sold_creator_royalty.setStyleSheet(u"font-size: 20pt;")
 
-        self.verticalLayout_3.addWidget(self.doubleSpinBox)
+        self.verticalLayout_3.addWidget(self.sold_creator_royalty)
 
 
         self.horizontalLayout_5.addWidget(self.frame_3)
@@ -184,11 +184,11 @@ class Ui_sold_dialog(object):
 
         self.verticalLayout_6.addWidget(self.label_3)
 
-        self.doubleSpinBox_2 = QDoubleSpinBox(self.frame_2)
-        self.doubleSpinBox_2.setObjectName(u"doubleSpinBox_2")
-        self.doubleSpinBox_2.setStyleSheet(u"font-size: 20pt;")
+        self.sold_market_royalty = QDoubleSpinBox(self.frame_2)
+        self.sold_market_royalty.setObjectName(u"sold_market_royalty")
+        self.sold_market_royalty.setStyleSheet(u"font-size: 20pt;")
 
-        self.verticalLayout_6.addWidget(self.doubleSpinBox_2)
+        self.verticalLayout_6.addWidget(self.sold_market_royalty)
 
 
         self.horizontalLayout_5.addWidget(self.frame_2)
