@@ -208,31 +208,55 @@ class Ui_MainWindow(object):
         self.horizontalLayout_8.setSpacing(0)
         self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
         self.horizontalLayout_8.setContentsMargins(1, 0, 1, 0)
-        self.widget = QChartView(self.whole_time)
-        self.widget.setObjectName(u"widget")
-        self.widget.setStyleSheet(u"background-color: rgb(129, 61, 156);\n"
+        self.whole_chart = QChartView(self.whole_time)
+        self.whole_chart.setObjectName(u"whole_chart")
+        self.whole_chart.setStyleSheet(u"background-color: none;\n"
 "border: none;")
 
-        self.horizontalLayout_8.addWidget(self.widget)
+        self.horizontalLayout_8.addWidget(self.whole_chart)
 
         self.tabWidget.addTab(self.whole_time, "")
         self.weekly = QWidget()
         self.weekly.setObjectName(u"weekly")
-        self.label_15 = QLabel(self.weekly)
-        self.label_15.setObjectName(u"label_15")
-        self.label_15.setGeometry(QRect(100, 60, 67, 17))
+        self.horizontalLayout_9 = QHBoxLayout(self.weekly)
+        self.horizontalLayout_9.setSpacing(0)
+        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
+        self.horizontalLayout_9.setContentsMargins(1, 0, 1, 0)
+        self.weekly_chart = QChartView(self.weekly)
+        self.weekly_chart.setObjectName(u"weekly_chart")
+        self.weekly_chart.setStyleSheet(u"background-color: none;\n"
+"border: none;")
+
+        self.horizontalLayout_9.addWidget(self.weekly_chart)
+
         self.tabWidget.addTab(self.weekly, "")
         self.monthly = QWidget()
         self.monthly.setObjectName(u"monthly")
-        self.label_16 = QLabel(self.monthly)
-        self.label_16.setObjectName(u"label_16")
-        self.label_16.setGeometry(QRect(150, 70, 67, 17))
+        self.horizontalLayout_10 = QHBoxLayout(self.monthly)
+        self.horizontalLayout_10.setSpacing(0)
+        self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
+        self.horizontalLayout_10.setContentsMargins(1, 0, 1, 0)
+        self.monthly_chart = QChartView(self.monthly)
+        self.monthly_chart.setObjectName(u"monthly_chart")
+        self.monthly_chart.setStyleSheet(u"background-color: none;\n"
+"border: none;")
+
+        self.horizontalLayout_10.addWidget(self.monthly_chart)
+
         self.tabWidget.addTab(self.monthly, "")
         self.yearly = QWidget()
         self.yearly.setObjectName(u"yearly")
-        self.label_17 = QLabel(self.yearly)
-        self.label_17.setObjectName(u"label_17")
-        self.label_17.setGeometry(QRect(250, 120, 67, 17))
+        self.horizontalLayout_11 = QHBoxLayout(self.yearly)
+        self.horizontalLayout_11.setSpacing(0)
+        self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
+        self.horizontalLayout_11.setContentsMargins(1, 0, 1, 0)
+        self.yearly_chart = QChartView(self.yearly)
+        self.yearly_chart.setObjectName(u"yearly_chart")
+        self.yearly_chart.setStyleSheet(u"background-color: none;\n"
+"border: none;")
+
+        self.horizontalLayout_11.addWidget(self.yearly_chart)
+
         self.tabWidget.addTab(self.yearly, "")
 
         self.verticalLayout_2.addWidget(self.tabWidget)
@@ -371,11 +395,8 @@ class Ui_MainWindow(object):
         self.yearly_income_usd.setText(QCoreApplication.translate("MainWindow", u"usd", None))
         self.label_13.setText(QCoreApplication.translate("MainWindow", u"Statistic", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.whole_time), QCoreApplication.translate("MainWindow", u"Whole Time", None))
-        self.label_15.setText(QCoreApplication.translate("MainWindow", u"Chart", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.weekly), QCoreApplication.translate("MainWindow", u"Weekly", None))
-        self.label_16.setText(QCoreApplication.translate("MainWindow", u"Chart", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.monthly), QCoreApplication.translate("MainWindow", u"Monthly", None))
-        self.label_17.setText(QCoreApplication.translate("MainWindow", u"Chart", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.yearly), QCoreApplication.translate("MainWindow", u"Yearly", None))
         self.add_button.setText(QCoreApplication.translate("MainWindow", u"Add", None))
         self.sold_button.setText(QCoreApplication.translate("MainWindow", u"Sold", None))

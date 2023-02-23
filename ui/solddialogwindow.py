@@ -43,4 +43,10 @@ class SoldDialogWindow(QDialog):
         self.mainwindow.refresh_monthly()
         self.mainwindow.refresh_yearly()
         self.mainwindow.refresh_all_income()
+
+        self.mainwindow.whole_chart()
+        self.mainwindow.weekly_chart()
+        self.mainwindow.monthly_chart()
+        self.mainwindow.yearly_chart()
+
         self.close()

@@ -189,7 +189,7 @@ class DataBase():
 
     def get_sales(self, days: int):
 
-        current = self.cursor.execute(f"""SELECT * FROM items WHERE ((buy_date 
+        current = self.cursor.execute(f"""SELECT *, ROWID FROM items WHERE ((buy_date 
         between (?) and (?)) and sell_date is null)
         or (sell_date is not null and sell_date between (?) 
         and (?))""", (date.today() - timedelta(days=days), date.today(), date.today() - timedelta(days=days),
@@ -199,9 +199,6 @@ class DataBase():
     def calc_income(self, items):
         answ = [0, 0]
         for item in items:
-            answ[0] += Decimal(item[-2]).quantize(Decimal('1.00'))
-            answ[1] += Decimal(item[-1]).quantize(Decimal('1.00'))
+            answ[0] += Decimal(item[-3]).quantize(Decimal('1.00'))
+            answ[1] += Decimal(item[-2]).quantize(Decimal('1.00'))
         return answ
-
-    def get_all(self):
-        current = self.cursor.execute("""SELECT * FROM items""").fetchall()
