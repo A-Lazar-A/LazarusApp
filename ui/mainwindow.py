@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QMainWindow, QDialog, QTableWidgetItem, QHeaderView
+from PySide6.QtWidgets import QMainWindow, QDialog, QTableWidgetItem, QHeaderView, QApplication
 from PySide6.QtGui import QColor
 from PySide6 import QtCharts
 from PySide6.QtCharts import QAbstractBarSeries
