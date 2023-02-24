@@ -1,10 +1,7 @@
 from PySide6 import QtCore
 from PySide6.QtWidgets import QMainWindow
-from datetime import date
 
 from ui.base.ui_splash import Ui_SplashWindow
-from decimal import Decimal
-from data_base.db import DataBase
 
 
 class SplashWindow(QMainWindow):
