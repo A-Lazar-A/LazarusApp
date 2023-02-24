@@ -13,16 +13,9 @@ def main():
     app = QApplication()
     centered = QScreen.availableGeometry(QApplication.primaryScreen()).center()
 
-
     window = MainWindow()
     splash = SplashWindow(window)
 
-    geo = window.frameGeometry()
-    geo.moveCenter(centered)
-    window.move(geo.topLeft())
-    geo = splash.frameGeometry()
-    geo.moveCenter(centered)
-    splash.move(geo.topRight())
     splash.show()
     sys.exit(app.exec())
 

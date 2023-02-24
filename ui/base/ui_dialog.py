@@ -9,16 +9,17 @@
 ################################################################################
 
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
+                            QMetaObject, QObject, QPoint, QRect,
+                            QSize, QTime, QUrl, Qt)
 from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
+                           QFont, QFontDatabase, QGradient, QIcon,
+                           QImage, QKeySequence, QLinearGradient, QPainter,
+                           QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractSpinBox, QApplication, QComboBox, QDateEdit,
-    QDialog, QDoubleSpinBox, QFrame, QHBoxLayout,
-    QLabel, QLineEdit, QPushButton, QSizePolicy,
-    QSpinBox, QVBoxLayout, QWidget)
+                               QDialog, QDoubleSpinBox, QFrame, QHBoxLayout,
+                               QLabel, QLineEdit, QPushButton, QSizePolicy,
+                               QSpinBox, QVBoxLayout, QWidget)
+
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
@@ -32,7 +33,7 @@ class Ui_Dialog(object):
         Dialog.setSizePolicy(sizePolicy)
         Dialog.setMinimumSize(QSize(744, 0))
         Dialog.setStyleSheet(u"background-color: rgb(31, 31, 31);\n"
-"color: rgb(255, 255, 255);")
+                             "color: rgb(255, 255, 255);")
         self.horizontalLayout_2 = QHBoxLayout(Dialog)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.frame = QFrame(Dialog)
@@ -45,8 +46,8 @@ class Ui_Dialog(object):
         self.frame.setSizePolicy(sizePolicy1)
         self.frame.setMinimumSize(QSize(0, 0))
         self.frame.setStyleSheet(u"background-color: rgba(255, 255, 255, 30);\n"
-"border: 1px solid rgba(255, 255, 255, 40);\n"
-"border-radius: 5px;")
+                                 "border: 1px solid rgba(255, 255, 255, 40);\n"
+                                 "border-radius: 5px;")
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_11 = QVBoxLayout(self.frame)
@@ -80,10 +81,10 @@ class Ui_Dialog(object):
         sizePolicy3.setHeightForWidth(self.purch_date_frame.sizePolicy().hasHeightForWidth())
         self.purch_date_frame.setSizePolicy(sizePolicy3)
         self.purch_date_frame.setStyleSheet(u"QFrame{\n"
-"background-color: none;\n"
-"border:none;\n"
-"}\n"
-"")
+                                            "background-color: none;\n"
+                                            "border:none;\n"
+                                            "}\n"
+                                            "")
         self.verticalLayout = QVBoxLayout(self.purch_date_frame)
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName(u"verticalLayout")
@@ -91,11 +92,11 @@ class Ui_Dialog(object):
         self.label.setObjectName(u"label")
         self.label.setMaximumSize(QSize(16777215, 20))
         font1 = QFont(family)
-
+        font1.setFamilies([u"Ubuntu"])
         self.label.setFont(font1)
         self.label.setStyleSheet(u"background-color: none;\n"
-"border: none;\n"
-"")
+                                 "border: none;\n"
+                                 "")
         self.label.setMargin(0)
 
         self.verticalLayout.addWidget(self.label)
@@ -104,29 +105,29 @@ class Ui_Dialog(object):
         self.buy_date_ui.setObjectName(u"buy_date_ui")
         self.buy_date_ui.setFont(font)
         self.buy_date_ui.setStyleSheet(u"\n"
-"QCalendarWidget QToolButton {\n"
-"  font-size: 20pt;\n"
-"  }\n"
-"/* header row */\n"
-"  QCalendarWidget QWidget { alternate-background-color: rgb(128, 128, 128); }\n"
-"\n"
-"  /* normal days */\n"
-"  QCalendarWidget QAbstractItemView:enabled \n"
-"  {\n"
-"  	font-size:20px;  \n"
-"  	color: rgb(255, 255, 255);  \n"
-"  	background-color: rgba(255, 255, 255, 30);  \n"
-"  	selection-background-color: rgb(64, 64, 64); \n"
-"  	selection-color: rgb(0, 255, 0); \n"
-"  }\n"
-"QCalendarWidget QAbstractItemView:disabled \n"
-"{ \n"
-"color: rgb(64, 64, 64); \n"
-"}")
+                                       "QCalendarWidget QToolButton {\n"
+                                       "  font-size: 20pt;\n"
+                                       "  }\n"
+                                       "/* header row */\n"
+                                       "  QCalendarWidget QWidget { alternate-background-color: rgb(128, 128, 128); }\n"
+                                       "\n"
+                                       "  /* normal days */\n"
+                                       "  QCalendarWidget QAbstractItemView:enabled \n"
+                                       "  {\n"
+                                       "  	font-size:20px;  \n"
+                                       "  	color: rgb(255, 255, 255);  \n"
+                                       "  	background-color: rgba(255, 255, 255, 30);  \n"
+                                       "  	selection-background-color: rgb(64, 64, 64); \n"
+                                       "  	selection-color: rgb(0, 255, 0); \n"
+                                       "  }\n"
+                                       "QCalendarWidget QAbstractItemView:disabled \n"
+                                       "{ \n"
+                                       "color: rgb(64, 64, 64); \n"
+                                       "}")
+        self.buy_date_ui.setButtonSymbols(QAbstractSpinBox.NoButtons)
         self.buy_date_ui.setCalendarPopup(False)
 
         self.verticalLayout.addWidget(self.buy_date_ui)
-
 
         self.horizontalLayout_4.addWidget(self.purch_date_frame)
 
@@ -135,10 +136,10 @@ class Ui_Dialog(object):
         sizePolicy3.setHeightForWidth(self.sell_date_frame.sizePolicy().hasHeightForWidth())
         self.sell_date_frame.setSizePolicy(sizePolicy3)
         self.sell_date_frame.setStyleSheet(u"QFrame{\n"
-"background-color: none;\n"
-"border:none;\n"
-"}\n"
-"")
+                                           "background-color: none;\n"
+                                           "border:none;\n"
+                                           "}\n"
+                                           "")
         self.verticalLayout_2 = QVBoxLayout(self.sell_date_frame)
         self.verticalLayout_2.setSpacing(0)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
@@ -148,8 +149,8 @@ class Ui_Dialog(object):
         self.label_2.setMaximumSize(QSize(16777215, 20))
         self.label_2.setFont(font1)
         self.label_2.setStyleSheet(u"background-color: none;\n"
-"border: none;\n"
-"margin-left: 2px;")
+                                   "border: none;\n"
+                                   "margin-left: 2px;")
 
         self.verticalLayout_2.addWidget(self.label_2)
 
@@ -157,32 +158,31 @@ class Ui_Dialog(object):
         self.sell_date_ui.setObjectName(u"sell_date_ui")
         self.sell_date_ui.setFont(font)
         self.sell_date_ui.setStyleSheet(u"\n"
-"QCalendarWidget QToolButton {\n"
-"  font-size: 20pt;\n"
-"  }\n"
-"/* header row */\n"
-"  QCalendarWidget QWidget { alternate-background-color: rgb(128, 128, 128); }\n"
-"\n"
-"  /* normal days */\n"
-"  QCalendarWidget QAbstractItemView:enabled \n"
-"  {\n"
-"  	font-size:20px;  \n"
-"  	color: rgb(255, 255, 255);  \n"
-"  	background-color: rgba(255, 255, 255, 30);  \n"
-"  	selection-background-color: rgb(64, 64, 64); \n"
-"  	selection-color: rgb(0, 255, 0); \n"
-"  }\n"
-"QCalendarWidget QAbstractItemView:disabled \n"
-"{ \n"
-"color: rgb(64, 64, 64); \n"
-"}")
+                                        "QCalendarWidget QToolButton {\n"
+                                        "  font-size: 20pt;\n"
+                                        "  }\n"
+                                        "/* header row */\n"
+                                        "  QCalendarWidget QWidget { alternate-background-color: rgb(128, 128, 128); }\n"
+                                        "\n"
+                                        "  /* normal days */\n"
+                                        "  QCalendarWidget QAbstractItemView:enabled \n"
+                                        "  {\n"
+                                        "  	font-size:20px;  \n"
+                                        "  	color: rgb(255, 255, 255);  \n"
+                                        "  	background-color: rgba(255, 255, 255, 30);  \n"
+                                        "  	selection-background-color: rgb(64, 64, 64); \n"
+                                        "  	selection-color: rgb(0, 255, 0); \n"
+                                        "  }\n"
+                                        "QCalendarWidget QAbstractItemView:disabled \n"
+                                        "{ \n"
+                                        "color: rgb(64, 64, 64); \n"
+                                        "}")
+        self.sell_date_ui.setButtonSymbols(QAbstractSpinBox.NoButtons)
         self.sell_date_ui.setCalendarPopup(False)
 
         self.verticalLayout_2.addWidget(self.sell_date_ui)
 
-
         self.horizontalLayout_4.addWidget(self.sell_date_frame)
-
 
         self.verticalLayout_11.addLayout(self.horizontalLayout_4)
 
@@ -198,10 +198,10 @@ class Ui_Dialog(object):
         self.price_frame.setSizePolicy(sizePolicy4)
         self.price_frame.setMinimumSize(QSize(211, 0))
         self.price_frame.setStyleSheet(u"QFrame{\n"
-"background-color: none;\n"
-"border:none;\n"
-"}\n"
-"")
+                                       "background-color: none;\n"
+                                       "border:none;\n"
+                                       "}\n"
+                                       "")
         self.verticalLayout_3 = QVBoxLayout(self.price_frame)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.verticalLayout_3.setContentsMargins(0, -1, -1, -1)
@@ -210,7 +210,7 @@ class Ui_Dialog(object):
         self.label_3.setMaximumSize(QSize(16777215, 20))
         self.label_3.setFont(font1)
         self.label_3.setStyleSheet(u"background-color: none;\n"
-"border: none;")
+                                   "border: none;")
 
         self.verticalLayout_3.addWidget(self.label_3)
 
@@ -226,7 +226,7 @@ class Ui_Dialog(object):
         self.buy_price_ui.setMinimumSize(QSize(90, 0))
         self.buy_price_ui.setFont(font)
         self.buy_price_ui.setStyleSheet(u"font-size: 20pt;\n"
-"")
+                                        "")
         self.buy_price_ui.setButtonSymbols(QAbstractSpinBox.NoButtons)
         self.buy_price_ui.setDecimals(4)
         self.buy_price_ui.setMaximum(99999999999999991611392.000000000000000)
@@ -245,41 +245,39 @@ class Ui_Dialog(object):
         self.buy_currency_ui.setMinimumSize(QSize(95, 0))
         self.buy_currency_ui.setFont(font)
         self.buy_currency_ui.setStyleSheet(u"QComboBox {\n"
-"   \n"
-"}\n"
-"\n"
-"QComboBox:editable {\n"
-"    \n"
-"}\n"
-"QComboBox QAbstractItemView {\n"
-"\n"
-"	background-color: rgb(31, 31, 31);\n"
-"}\n"
-"QComboBox:!editable, QComboBox::drop-down:editable {\n"
-"     \n"
-"}\n"
-"\n"
-"/* QComboBox gets the \"on\" state when the popup is open */\n"
-"QComboBox:!editable:on, QComboBox::drop-down:editable:on {\n"
-"   \n"
-"}\n"
-"\n"
-"QComboBox:on { /* shift the text when the popup opens */\n"
-"    \n"
-"}\n"
-"\n"
-"QComboBox::drop-down {\n"
-"    \n"
-"}\n"
-"\n"
-"\n"
-"")
+                                           "   \n"
+                                           "}\n"
+                                           "\n"
+                                           "QComboBox:editable {\n"
+                                           "    \n"
+                                           "}\n"
+                                           "QComboBox QAbstractItemView {\n"
+                                           "\n"
+                                           "	background-color: rgb(31, 31, 31);\n"
+                                           "}\n"
+                                           "QComboBox:!editable, QComboBox::drop-down:editable {\n"
+                                           "     \n"
+                                           "}\n"
+                                           "\n"
+                                           "/* QComboBox gets the \"on\" state when the popup is open */\n"
+                                           "QComboBox:!editable:on, QComboBox::drop-down:editable:on {\n"
+                                           "   \n"
+                                           "}\n"
+                                           "\n"
+                                           "QComboBox:on { /* shift the text when the popup opens */\n"
+                                           "    \n"
+                                           "}\n"
+                                           "\n"
+                                           "QComboBox::drop-down {\n"
+                                           "    \n"
+                                           "}\n"
+                                           "\n"
+                                           "\n"
+                                           "")
 
         self.horizontalLayout_3.addWidget(self.buy_currency_ui)
 
-
         self.verticalLayout_3.addLayout(self.horizontalLayout_3)
-
 
         self.horizontalLayout_5.addWidget(self.price_frame)
 
@@ -289,10 +287,10 @@ class Ui_Dialog(object):
         self.sell_frame.setSizePolicy(sizePolicy4)
         self.sell_frame.setMinimumSize(QSize(211, 0))
         self.sell_frame.setStyleSheet(u"QFrame{\n"
-"background-color: none;\n"
-"border:none;\n"
-"}\n"
-"")
+                                      "background-color: none;\n"
+                                      "border:none;\n"
+                                      "}\n"
+                                      "")
         self.verticalLayout_4 = QVBoxLayout(self.sell_frame)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.label_4 = QLabel(self.sell_frame)
@@ -305,7 +303,7 @@ class Ui_Dialog(object):
         self.label_4.setMaximumSize(QSize(16777215, 20))
         self.label_4.setFont(font1)
         self.label_4.setStyleSheet(u"background-color: none;\n"
-"border: none;")
+                                   "border: none;")
 
         self.verticalLayout_4.addWidget(self.label_4)
 
@@ -318,7 +316,7 @@ class Ui_Dialog(object):
         self.sell_price_ui.setMinimumSize(QSize(90, 0))
         self.sell_price_ui.setFont(font)
         self.sell_price_ui.setStyleSheet(u"font-size: 20pt;\n"
-"")
+                                         "")
         self.sell_price_ui.setButtonSymbols(QAbstractSpinBox.NoButtons)
         self.sell_price_ui.setCorrectionMode(QAbstractSpinBox.CorrectToPreviousValue)
         self.sell_price_ui.setDecimals(4)
@@ -338,41 +336,39 @@ class Ui_Dialog(object):
         self.sell_currency_ui.setMinimumSize(QSize(95, 0))
         self.sell_currency_ui.setFont(font)
         self.sell_currency_ui.setStyleSheet(u"QComboBox {\n"
-"   \n"
-"}\n"
-"\n"
-"QComboBox:editable {\n"
-"    \n"
-"}\n"
-"QComboBox QAbstractItemView {\n"
-"\n"
-"	background-color: rgb(31, 31, 31);\n"
-"}\n"
-"QComboBox:!editable, QComboBox::drop-down:editable {\n"
-"     \n"
-"}\n"
-"\n"
-"/* QComboBox gets the \"on\" state when the popup is open */\n"
-"QComboBox:!editable:on, QComboBox::drop-down:editable:on {\n"
-"   \n"
-"}\n"
-"\n"
-"QComboBox:on { /* shift the text when the popup opens */\n"
-"    \n"
-"}\n"
-"\n"
-"QComboBox::drop-down {\n"
-"    \n"
-"}\n"
-"\n"
-"\n"
-"")
+                                            "   \n"
+                                            "}\n"
+                                            "\n"
+                                            "QComboBox:editable {\n"
+                                            "    \n"
+                                            "}\n"
+                                            "QComboBox QAbstractItemView {\n"
+                                            "\n"
+                                            "	background-color: rgb(31, 31, 31);\n"
+                                            "}\n"
+                                            "QComboBox:!editable, QComboBox::drop-down:editable {\n"
+                                            "     \n"
+                                            "}\n"
+                                            "\n"
+                                            "/* QComboBox gets the \"on\" state when the popup is open */\n"
+                                            "QComboBox:!editable:on, QComboBox::drop-down:editable:on {\n"
+                                            "   \n"
+                                            "}\n"
+                                            "\n"
+                                            "QComboBox:on { /* shift the text when the popup opens */\n"
+                                            "    \n"
+                                            "}\n"
+                                            "\n"
+                                            "QComboBox::drop-down {\n"
+                                            "    \n"
+                                            "}\n"
+                                            "\n"
+                                            "\n"
+                                            "")
 
         self.horizontalLayout.addWidget(self.sell_currency_ui)
 
-
         self.verticalLayout_4.addLayout(self.horizontalLayout)
-
 
         self.horizontalLayout_5.addWidget(self.sell_frame)
 
@@ -381,10 +377,10 @@ class Ui_Dialog(object):
         sizePolicy4.setHeightForWidth(self.frame_2.sizePolicy().hasHeightForWidth())
         self.frame_2.setSizePolicy(sizePolicy4)
         self.frame_2.setStyleSheet(u"QFrame{\n"
-"background-color: none;\n"
-"border:none;\n"
-"}\n"
-"")
+                                   "background-color: none;\n"
+                                   "border:none;\n"
+                                   "}\n"
+                                   "")
         self.frame_2.setFrameShape(QFrame.StyledPanel)
         self.frame_2.setFrameShadow(QFrame.Raised)
         self.verticalLayout_6 = QVBoxLayout(self.frame_2)
@@ -406,11 +402,10 @@ class Ui_Dialog(object):
         self.creator_royalty_ui.setSizePolicy(sizePolicy5)
         self.creator_royalty_ui.setFont(font)
         self.creator_royalty_ui.setStyleSheet(u"font-size: 20pt;")
-        self.creator_royalty_ui.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.creator_royalty_ui.setAlignment(Qt.AlignRight | Qt.AlignTrailing | Qt.AlignVCenter)
         self.creator_royalty_ui.setButtonSymbols(QAbstractSpinBox.NoButtons)
 
         self.verticalLayout_6.addWidget(self.creator_royalty_ui)
-
 
         self.horizontalLayout_5.addWidget(self.frame_2)
 
@@ -420,10 +415,10 @@ class Ui_Dialog(object):
         self.frame_3.setSizePolicy(sizePolicy4)
         self.frame_3.setLayoutDirection(Qt.LeftToRight)
         self.frame_3.setStyleSheet(u"QFrame{\n"
-"background-color: none;\n"
-"border:none;\n"
-"}\n"
-"")
+                                   "background-color: none;\n"
+                                   "border:none;\n"
+                                   "}\n"
+                                   "")
         self.frame_3.setFrameShape(QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QFrame.Raised)
         self.verticalLayout_7 = QVBoxLayout(self.frame_3)
@@ -443,14 +438,12 @@ class Ui_Dialog(object):
         self.market_royalty_ui.setSizePolicy(sizePolicy5)
         self.market_royalty_ui.setFont(font)
         self.market_royalty_ui.setStyleSheet(u"font-size: 20pt;")
-        self.market_royalty_ui.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.market_royalty_ui.setAlignment(Qt.AlignRight | Qt.AlignTrailing | Qt.AlignVCenter)
         self.market_royalty_ui.setButtonSymbols(QAbstractSpinBox.NoButtons)
 
         self.verticalLayout_7.addWidget(self.market_royalty_ui)
 
-
         self.horizontalLayout_5.addWidget(self.frame_3)
-
 
         self.verticalLayout_11.addLayout(self.horizontalLayout_5)
 
@@ -459,10 +452,10 @@ class Ui_Dialog(object):
         sizePolicy3.setHeightForWidth(self.q_frame.sizePolicy().hasHeightForWidth())
         self.q_frame.setSizePolicy(sizePolicy3)
         self.q_frame.setStyleSheet(u"QFrame{\n"
-"background-color: none;\n"
-"border:none;\n"
-"}\n"
-"")
+                                   "background-color: none;\n"
+                                   "border:none;\n"
+                                   "}\n"
+                                   "")
         self.verticalLayout_5 = QVBoxLayout(self.q_frame)
         self.verticalLayout_5.setSpacing(6)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
@@ -472,8 +465,8 @@ class Ui_Dialog(object):
         self.label_5.setMaximumSize(QSize(16777215, 20))
         self.label_5.setFont(font1)
         self.label_5.setStyleSheet(u"background-color: none;\n"
-"border: none;\n"
-"")
+                                   "border: none;\n"
+                                   "")
 
         self.verticalLayout_5.addWidget(self.label_5)
 
@@ -481,11 +474,11 @@ class Ui_Dialog(object):
         self.quantity_ui.setObjectName(u"quantity_ui")
         self.quantity_ui.setFont(font)
         self.quantity_ui.setStyleSheet(u"font-size: 20pt;\n"
-"")
+                                       "")
+        self.quantity_ui.setButtonSymbols(QAbstractSpinBox.NoButtons)
         self.quantity_ui.setMinimum(1)
 
         self.verticalLayout_5.addWidget(self.quantity_ui)
-
 
         self.verticalLayout_11.addWidget(self.q_frame)
 
@@ -494,26 +487,25 @@ class Ui_Dialog(object):
         self.add_dialog_button.setMinimumSize(QSize(0, 50))
         self.add_dialog_button.setFont(font1)
         self.add_dialog_button.setStyleSheet(u"QPushButton{\n"
-"background-color: rgba(255, 255, 255, 30);\n"
-"border: 1px solid rgba(255, 255, 255, 40);\n"
-"border-radius: 5px;\n"
-"}\n"
-"QPushButton::hover{\n"
-"background-color: rgba(255, 255, 255, 40);\n"
-"}\n"
-"QPushButton::pressed{\n"
-"background-color: rgba(255, 255, 255, 50);\n"
-"}")
+                                             "background-color: rgba(255, 255, 255, 30);\n"
+                                             "border: 1px solid rgba(255, 255, 255, 40);\n"
+                                             "border-radius: 5px;\n"
+                                             "}\n"
+                                             "QPushButton::hover{\n"
+                                             "background-color: rgba(255, 255, 255, 40);\n"
+                                             "}\n"
+                                             "QPushButton::pressed{\n"
+                                             "background-color: rgba(255, 255, 255, 50);\n"
+                                             "}")
 
         self.verticalLayout_11.addWidget(self.add_dialog_button)
 
-
         self.horizontalLayout_2.addWidget(self.frame)
-
 
         self.retranslateUi(Dialog)
 
         QMetaObject.connectSlotsByName(Dialog)
+
     # setupUi
 
     def retranslateUi(self, Dialog):
@@ -538,4 +530,3 @@ class Ui_Dialog(object):
         self.label_5.setText(QCoreApplication.translate("Dialog", u"Quantity", None))
         self.add_dialog_button.setText(QCoreApplication.translate("Dialog", u"Add", None))
     # retranslateUi
-

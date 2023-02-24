@@ -164,6 +164,9 @@ QCalendarWidget QAbstractItemView:disabled
 color: rgb(64, 64, 64); 
 }</string>
              </property>
+             <property name="buttonSymbols">
+              <enum>QAbstractSpinBox::NoButtons</enum>
+             </property>
              <property name="calendarPopup">
               <bool>false</bool>
              </property>
@@ -246,6 +249,9 @@ QCalendarWidget QAbstractItemView:disabled
 { 
 color: rgb(64, 64, 64); 
 }</string>
+             </property>
+             <property name="buttonSymbols">
+              <enum>QAbstractSpinBox::NoButtons</enum>
              </property>
              <property name="calendarPopup">
               <bool>false</bool>
@@ -809,6 +815,9 @@ border: none;
            <property name="styleSheet">
             <string notr="true">font-size: 20pt;
 </string>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::NoButtons</enum>
            </property>
            <property name="minimum">
             <number>1</number>

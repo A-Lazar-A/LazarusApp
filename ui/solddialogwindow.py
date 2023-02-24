@@ -23,7 +23,6 @@ class SoldDialogWindow(QDialog):
         self.ui.sold_market_royalty.setValue(item[-4])
         self.ui.sold_dialog_button.clicked.connect(self.sold_item)
 
-# TODO: Add royalties and autofill off fields
     def sold_item(self):
         db = DataBase()
 
