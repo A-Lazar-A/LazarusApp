@@ -62,7 +62,10 @@ class Ui_Dialog(object):
         sizePolicy2.setVerticalStretch(0)
         sizePolicy2.setHeightForWidth(self.item_name.sizePolicy().hasHeightForWidth())
         self.item_name.setSizePolicy(sizePolicy2)
-        font = QFont(":/fonts/Ubuntu-R.ttf")
+        id = QFontDatabase.addApplicationFont(":/fonts/Roboto-Regular.ttf")
+        family = QFontDatabase.applicationFontFamilies(id)[0]
+
+        font = QFont(family)
         font.setPointSize(20)
         self.item_name.setFont(font)
         self.item_name.setStyleSheet(u"margin-top:18px;")
@@ -87,6 +90,9 @@ class Ui_Dialog(object):
         self.label = QLabel(self.purch_date_frame)
         self.label.setObjectName(u"label")
         self.label.setMaximumSize(QSize(16777215, 20))
+        font1 = QFont(family)
+
+        self.label.setFont(font1)
         self.label.setStyleSheet(u"background-color: none;\n"
 "border: none;\n"
 "")
@@ -140,6 +146,7 @@ class Ui_Dialog(object):
         self.label_2 = QLabel(self.sell_date_frame)
         self.label_2.setObjectName(u"label_2")
         self.label_2.setMaximumSize(QSize(16777215, 20))
+        self.label_2.setFont(font1)
         self.label_2.setStyleSheet(u"background-color: none;\n"
 "border: none;\n"
 "margin-left: 2px;")
@@ -201,6 +208,7 @@ class Ui_Dialog(object):
         self.label_3 = QLabel(self.price_frame)
         self.label_3.setObjectName(u"label_3")
         self.label_3.setMaximumSize(QSize(16777215, 20))
+        self.label_3.setFont(font1)
         self.label_3.setStyleSheet(u"background-color: none;\n"
 "border: none;")
 
@@ -295,6 +303,7 @@ class Ui_Dialog(object):
         sizePolicy6.setHeightForWidth(self.label_4.sizePolicy().hasHeightForWidth())
         self.label_4.setSizePolicy(sizePolicy6)
         self.label_4.setMaximumSize(QSize(16777215, 20))
+        self.label_4.setFont(font1)
         self.label_4.setStyleSheet(u"background-color: none;\n"
 "border: none;")
 
@@ -307,6 +316,7 @@ class Ui_Dialog(object):
         sizePolicy5.setHeightForWidth(self.sell_price_ui.sizePolicy().hasHeightForWidth())
         self.sell_price_ui.setSizePolicy(sizePolicy5)
         self.sell_price_ui.setMinimumSize(QSize(90, 0))
+        self.sell_price_ui.setFont(font)
         self.sell_price_ui.setStyleSheet(u"font-size: 20pt;\n"
 "")
         self.sell_price_ui.setButtonSymbols(QAbstractSpinBox.NoButtons)
@@ -386,6 +396,7 @@ class Ui_Dialog(object):
         sizePolicy7.setVerticalStretch(0)
         sizePolicy7.setHeightForWidth(self.label_6.sizePolicy().hasHeightForWidth())
         self.label_6.setSizePolicy(sizePolicy7)
+        self.label_6.setFont(font1)
 
         self.verticalLayout_6.addWidget(self.label_6)
 
@@ -393,6 +404,7 @@ class Ui_Dialog(object):
         self.creator_royalty_ui.setObjectName(u"creator_royalty_ui")
         sizePolicy5.setHeightForWidth(self.creator_royalty_ui.sizePolicy().hasHeightForWidth())
         self.creator_royalty_ui.setSizePolicy(sizePolicy5)
+        self.creator_royalty_ui.setFont(font)
         self.creator_royalty_ui.setStyleSheet(u"font-size: 20pt;")
         self.creator_royalty_ui.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
         self.creator_royalty_ui.setButtonSymbols(QAbstractSpinBox.NoButtons)
@@ -421,6 +433,7 @@ class Ui_Dialog(object):
         self.label_7.setObjectName(u"label_7")
         sizePolicy7.setHeightForWidth(self.label_7.sizePolicy().hasHeightForWidth())
         self.label_7.setSizePolicy(sizePolicy7)
+        self.label_7.setFont(font1)
 
         self.verticalLayout_7.addWidget(self.label_7)
 
@@ -428,6 +441,7 @@ class Ui_Dialog(object):
         self.market_royalty_ui.setObjectName(u"market_royalty_ui")
         sizePolicy5.setHeightForWidth(self.market_royalty_ui.sizePolicy().hasHeightForWidth())
         self.market_royalty_ui.setSizePolicy(sizePolicy5)
+        self.market_royalty_ui.setFont(font)
         self.market_royalty_ui.setStyleSheet(u"font-size: 20pt;")
         self.market_royalty_ui.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
         self.market_royalty_ui.setButtonSymbols(QAbstractSpinBox.NoButtons)
@@ -456,6 +470,7 @@ class Ui_Dialog(object):
         self.label_5 = QLabel(self.q_frame)
         self.label_5.setObjectName(u"label_5")
         self.label_5.setMaximumSize(QSize(16777215, 20))
+        self.label_5.setFont(font1)
         self.label_5.setStyleSheet(u"background-color: none;\n"
 "border: none;\n"
 "")
@@ -464,6 +479,7 @@ class Ui_Dialog(object):
 
         self.quantity_ui = QSpinBox(self.q_frame)
         self.quantity_ui.setObjectName(u"quantity_ui")
+        self.quantity_ui.setFont(font)
         self.quantity_ui.setStyleSheet(u"font-size: 20pt;\n"
 "")
         self.quantity_ui.setMinimum(1)
@@ -476,6 +492,7 @@ class Ui_Dialog(object):
         self.add_dialog_button = QPushButton(self.frame)
         self.add_dialog_button.setObjectName(u"add_dialog_button")
         self.add_dialog_button.setMinimumSize(QSize(0, 50))
+        self.add_dialog_button.setFont(font1)
         self.add_dialog_button.setStyleSheet(u"QPushButton{\n"
 "background-color: rgba(255, 255, 255, 30);\n"
 "border: 1px solid rgba(255, 255, 255, 40);\n"

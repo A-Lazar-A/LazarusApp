@@ -1,7 +1,11 @@
 import os
 import re
 
+def kek():
+    id = QFontDatabase.addApplicationFont(":/fonts/TiltPrism-Regular-VariableFont_XROT,YROT.ttf")
+    family = QFontDatabase.applicationFontFamilies(id)[0]
 
+    font = QFont(family)
 def generate(path: str):
     files = os.listdir(path)
     ui_list = []
@@ -18,3 +22,4 @@ def generate(path: str):
 
 if __name__ == '__main__':
     generate(os.path.dirname((os.path.abspath(__file__))))
+

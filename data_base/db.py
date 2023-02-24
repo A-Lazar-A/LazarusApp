@@ -116,10 +116,10 @@ class DataBase():
 
     def get_item(self, id: int = None):
         if id is not None:
-            current = self.cursor.execute("""SELECT * FROM items WHERE ROWID = (?)""", (id,)).fetchall()
+            current = self.cursor.execute("""SELECT * FROM items WHERE ROWID = (?)""", (id,)).fetchone()
         else:
             current = self.cursor.execute("""SELECT *, ROWID FROM items""").fetchall()
-        return current[::-1]
+        return current if id else current[::-1]
 
     def update_sold_item(self, item: dict):
         current = self.cursor.execute("""SELECT * FROM items WHERE ROWID = (:id)""", item).fetchone()

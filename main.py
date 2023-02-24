@@ -23,7 +23,7 @@ def main():
     geo = splash.frameGeometry()
     geo.moveCenter(centered)
     splash.move(geo.topRight())
-    window.show()
+    splash.show()
     sys.exit(app.exec())
 
 

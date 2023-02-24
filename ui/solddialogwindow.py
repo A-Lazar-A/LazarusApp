@@ -19,8 +19,8 @@ class SoldDialogWindow(QDialog):
         self.setWindowTitle(self.mainwindow.ui.table_items_view.item(self.selected[0].row(), 0).text())
         rowid = self.mainwindow.ui.table_items_view.item(self.selected[0].row(), 9).text()
         item = db.get_item(rowid)
-        self.ui.sold_creator_royalty.setValue(item[7])
-        self.ui.sold_market_royalty.setValue(item[8])
+        self.ui.sold_creator_royalty.setValue(item[-3])
+        self.ui.sold_market_royalty.setValue(item[-4])
         self.ui.sold_dialog_button.clicked.connect(self.sold_item)
 
 # TODO: Add royalties and autofill off fields

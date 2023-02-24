@@ -82,6 +82,11 @@ border:none;
                <height>20</height>
               </size>
              </property>
+             <property name="font">
+              <font>
+               <family>Ubuntu</family>
+              </font>
+             </property>
              <property name="styleSheet">
               <string notr="true">background-color: none;
 border: none;</string>
@@ -95,6 +100,12 @@ border: none;</string>
             <layout class="QHBoxLayout" name="horizontalLayout">
              <item>
               <widget class="QDoubleSpinBox" name="sold_price_ui">
+               <property name="font">
+                <font>
+                 <family>Ubuntu</family>
+                 <pointsize>20</pointsize>
+                </font>
+               </property>
                <property name="styleSheet">
                 <string notr="true">font-size: 20pt;
 </string>
@@ -126,6 +137,7 @@ border: none;</string>
                </property>
                <property name="font">
                 <font>
+                 <family>Ubuntu</family>
                  <pointsize>20</pointsize>
                 </font>
                </property>
@@ -212,6 +224,11 @@ border:none;
           <layout class="QVBoxLayout" name="verticalLayout_3">
            <item>
             <widget class="QLabel" name="label">
+             <property name="font">
+              <font>
+               <family>Ubuntu</family>
+              </font>
+             </property>
              <property name="text">
               <string>Creator Royalty %</string>
              </property>
@@ -219,6 +236,12 @@ border:none;
            </item>
            <item>
             <widget class="QDoubleSpinBox" name="sold_creator_royalty">
+             <property name="font">
+              <font>
+               <family>Ubuntu</family>
+               <pointsize>20</pointsize>
+              </font>
+             </property>
              <property name="styleSheet">
               <string notr="true">font-size: 20pt;</string>
              </property>
@@ -254,6 +277,11 @@ border:none;
            </property>
            <item>
             <widget class="QLabel" name="label_3">
+             <property name="font">
+              <font>
+               <family>Ubuntu</family>
+              </font>
+             </property>
              <property name="text">
               <string>Market Royalty %</string>
              </property>
@@ -261,6 +289,12 @@ border:none;
            </item>
            <item>
             <widget class="QDoubleSpinBox" name="sold_market_royalty">
+             <property name="font">
+              <font>
+               <family>Ubuntu</family>
+               <pointsize>20</pointsize>
+              </font>
+             </property>
              <property name="styleSheet">
               <string notr="true">font-size: 20pt;</string>
              </property>
@@ -297,6 +331,11 @@ border:none;
            </property>
            <item>
             <widget class="QLabel" name="label_5">
+             <property name="font">
+              <font>
+               <family>Ubuntu</family>
+              </font>
+             </property>
              <property name="text">
               <string>Sale Date</string>
              </property>
@@ -306,6 +345,7 @@ border:none;
             <widget class="QDateEdit" name="sold_date_ui">
              <property name="font">
               <font>
+               <family>Ubuntu</family>
                <pointsize>20</pointsize>
               </font>
              </property>
@@ -348,6 +388,11 @@ color: rgb(64, 64, 64);
           <width>0</width>
           <height>50</height>
          </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Ubuntu</family>
+         </font>
         </property>
         <property name="styleSheet">
          <string notr="true">QPushButton{

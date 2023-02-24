@@ -38,7 +38,10 @@ class Ui_SplashWindow(object):
         self.label = QLabel(self.frame)
         self.label.setObjectName(u"label")
         self.label.setGeometry(QRect(0, 120, 771, 71))
-        font = QFont(":/fonts/Ubuntu-R.ttf")
+        id = QFontDatabase.addApplicationFont(":/fonts/Roboto-Regular.ttf")
+        family = QFontDatabase.applicationFontFamilies(id)[0]
+
+        font = QFont(family)
         font.setPointSize(40)
         font.setBold(False)
         self.label.setFont(font)
@@ -61,7 +64,10 @@ class Ui_SplashWindow(object):
         self.label_2 = QLabel(self.frame)
         self.label_2.setObjectName(u"label_2")
         self.label_2.setGeometry(QRect(20, 450, 741, 21))
-        font1 = QFont(":/fonts/Ubuntu-R.ttf")
+        id = QFontDatabase.addApplicationFont(":/fonts/Roboto-Regular.ttf")
+        family = QFontDatabase.applicationFontFamilies(id)[0]
+
+        font1 = QFont(family)
         font1.setPointSize(12)
         font1.setBold(False)
         self.label_2.setFont(font1)

@@ -28,6 +28,11 @@ class Ui_MainWindow(object):
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(1200, 700)
         MainWindow.setMinimumSize(QSize(1200, 700))
+        id = QFontDatabase.addApplicationFont(":/fonts/Roboto-Regular.ttf")
+        family = QFontDatabase.applicationFontFamilies(id)[0]
+
+        font = QFont(family)
+        MainWindow.setFont(font)
         MainWindow.setStyleSheet(u"background-color: rgb(31, 31, 31);\n"
 "color: rgb(255, 255, 255);")
         self.centralwidget = QWidget(MainWindow)
@@ -47,10 +52,13 @@ class Ui_MainWindow(object):
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.label = QLabel(self.income_frame)
         self.label.setObjectName(u"label")
-        font = QFont(":/fonts/Ubuntu-R.ttf")
-        font.setPointSize(20)
-        font.setBold(True)
-        self.label.setFont(font)
+        id = QFontDatabase.addApplicationFont(":/fonts/Roboto-Regular.ttf")
+        family = QFontDatabase.applicationFontFamilies(id)[0]
+
+        font1 = QFont(family)
+        font1.setPointSize(20)
+        font1.setBold(True)
+        self.label.setFont(font1)
         self.label.setStyleSheet(u"background-color: none;\n"
 "border: none;")
 
@@ -62,9 +70,12 @@ class Ui_MainWindow(object):
 
         self.all_income_rub = QLabel(self.income_frame)
         self.all_income_rub.setObjectName(u"all_income_rub")
-        font1 = QFont(":/fonts/Ubuntu-R.ttf")
-        font1.setPointSize(16)
-        self.all_income_rub.setFont(font1)
+        id = QFontDatabase.addApplicationFont(":/fonts/Roboto-Regular.ttf")
+        family = QFontDatabase.applicationFontFamilies(id)[0]
+
+        font2 = QFont(family)
+        font2.setPointSize(16)
+        self.all_income_rub.setFont(font2)
 
         self.horizontalLayout_4.addWidget(self.all_income_rub)
 
@@ -74,7 +85,7 @@ class Ui_MainWindow(object):
 
         self.all_income_usd = QLabel(self.income_frame)
         self.all_income_usd.setObjectName(u"all_income_usd")
-        self.all_income_usd.setFont(font1)
+        self.all_income_usd.setFont(font2)
 
         self.horizontalLayout_4.addWidget(self.all_income_usd)
 
@@ -93,6 +104,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.label_2.sizePolicy().hasHeightForWidth())
         self.label_2.setSizePolicy(sizePolicy)
         self.label_2.setMinimumSize(QSize(0, 41))
+        self.label_2.setFont(font)
 
         self.verticalLayout.addWidget(self.label_2)
 
@@ -100,15 +112,18 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.weekly_income_rub = QLabel(self.income_frame)
         self.weekly_income_rub.setObjectName(u"weekly_income_rub")
-        font2 = QFont(":/fonts/Ubuntu-R.ttf")
-        font2.setPointSize(18)
-        self.weekly_income_rub.setFont(font2)
+        id = QFontDatabase.addApplicationFont(":/fonts/Roboto-Regular.ttf")
+        family = QFontDatabase.applicationFontFamilies(id)[0]
+
+        font3 = QFont(family)
+        font3.setPointSize(18)
+        self.weekly_income_rub.setFont(font3)
 
         self.horizontalLayout.addWidget(self.weekly_income_rub)
 
         self.weekly_income_usd = QLabel(self.income_frame)
         self.weekly_income_usd.setObjectName(u"weekly_income_usd")
-        self.weekly_income_usd.setFont(font2)
+        self.weekly_income_usd.setFont(font3)
 
         self.horizontalLayout.addWidget(self.weekly_income_usd)
 
@@ -124,13 +139,13 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.monthly_income_rub = QLabel(self.income_frame)
         self.monthly_income_rub.setObjectName(u"monthly_income_rub")
-        self.monthly_income_rub.setFont(font2)
+        self.monthly_income_rub.setFont(font3)
 
         self.horizontalLayout_2.addWidget(self.monthly_income_rub)
 
         self.monthly_income_usd = QLabel(self.income_frame)
         self.monthly_income_usd.setObjectName(u"monthly_income_usd")
-        self.monthly_income_usd.setFont(font2)
+        self.monthly_income_usd.setFont(font3)
 
         self.horizontalLayout_2.addWidget(self.monthly_income_usd)
 
@@ -139,6 +154,7 @@ class Ui_MainWindow(object):
 
         self.label_4 = QLabel(self.income_frame)
         self.label_4.setObjectName(u"label_4")
+        self.label_4.setFont(font)
 
         self.verticalLayout.addWidget(self.label_4)
 
@@ -146,13 +162,13 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.yearly_income_rub = QLabel(self.income_frame)
         self.yearly_income_rub.setObjectName(u"yearly_income_rub")
-        self.yearly_income_rub.setFont(font2)
+        self.yearly_income_rub.setFont(font3)
 
         self.horizontalLayout_3.addWidget(self.yearly_income_rub)
 
         self.yearly_income_usd = QLabel(self.income_frame)
         self.yearly_income_usd.setObjectName(u"yearly_income_usd")
-        self.yearly_income_usd.setFont(font2)
+        self.yearly_income_usd.setFont(font3)
 
         self.horizontalLayout_3.addWidget(self.yearly_income_usd)
 
@@ -179,7 +195,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
         self.label_13 = QLabel(self.statistic_frame)
         self.label_13.setObjectName(u"label_13")
-        self.label_13.setFont(font)
+        self.label_13.setFont(font1)
         self.label_13.setStyleSheet(u"background-color: none;\n"
 "border: none;")
 
@@ -194,9 +210,11 @@ class Ui_MainWindow(object):
 
         self.tabWidget = QTabWidget(self.statistic_frame)
         self.tabWidget.setObjectName(u"tabWidget")
-        font3 = QFont(":/fonts/Ubuntu-R.ttf")
-        font3.setPointSize(13)
-        self.tabWidget.setFont(font3)
+
+
+        font4 = QFont(family)
+        font4.setPointSize(13)
+        self.tabWidget.setFont(font4)
         self.tabWidget.setStyleSheet(u"QTabBar::tab {\n"
 "  background: rgb(31, 31, 31); \n"
 "\n"
@@ -291,6 +309,7 @@ class Ui_MainWindow(object):
         self.add_button = QPushButton(self.centralwidget)
         self.add_button.setObjectName(u"add_button")
         self.add_button.setMinimumSize(QSize(0, 40))
+        self.add_button.setFont(font)
         self.add_button.setStyleSheet(u"QPushButton{\n"
 "background-color: rgba(255, 255, 255, 30);\n"
 "border: 1px solid rgba(255, 255, 255, 40);\n"
@@ -316,6 +335,7 @@ class Ui_MainWindow(object):
         sizePolicy1.setHeightForWidth(self.sold_button.sizePolicy().hasHeightForWidth())
         self.sold_button.setSizePolicy(sizePolicy1)
         self.sold_button.setMinimumSize(QSize(0, 40))
+        self.sold_button.setFont(font)
         self.sold_button.setStyleSheet(u"QPushButton{\n"
 "background-color: rgba(255, 255, 255, 30);\n"
 "border: 1px solid rgba(255, 255, 255, 40);\n"
@@ -336,6 +356,7 @@ class Ui_MainWindow(object):
         self.delete_button = QPushButton(self.centralwidget)
         self.delete_button.setObjectName(u"delete_button")
         self.delete_button.setMinimumSize(QSize(0, 40))
+        self.delete_button.setFont(font)
         self.delete_button.setStyleSheet(u"QPushButton{\n"
 "background-color: rgba(255, 255, 255, 30);\n"
 "border: 1px solid rgba(255, 255, 255, 40);\n"
@@ -378,6 +399,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem8 = QTableWidgetItem()
         self.table_items_view.setHorizontalHeaderItem(8, __qtablewidgetitem8)
         self.table_items_view.setObjectName(u"table_items_view")
+        self.table_items_view.setFont(font)
         self.table_items_view.setStyleSheet(u"QTableWidget {\n"
 "    background-color: rgb(31,31,31);\n"
 "background: rgb(31,31,31);\n"

@@ -67,6 +67,11 @@ class Ui_sold_dialog(object):
         self.label_4 = QLabel(self.sell_frame)
         self.label_4.setObjectName(u"label_4")
         self.label_4.setMaximumSize(QSize(16777215, 20))
+        id = QFontDatabase.addApplicationFont(":/fonts/Roboto-Regular.ttf")
+        family = QFontDatabase.applicationFontFamilies(id)[0]
+
+        font = QFont(family)
+        self.label_4.setFont(font)
         self.label_4.setStyleSheet(u"background-color: none;\n"
 "border: none;")
 
@@ -76,6 +81,9 @@ class Ui_sold_dialog(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.sold_price_ui = QDoubleSpinBox(self.sell_frame)
         self.sold_price_ui.setObjectName(u"sold_price_ui")
+        font1 = QFont(family)
+        font1.setPointSize(20)
+        self.sold_price_ui.setFont(font1)
         self.sold_price_ui.setStyleSheet(u"font-size: 20pt;\n"
 "")
         self.sold_price_ui.setButtonSymbols(QAbstractSpinBox.NoButtons)
@@ -93,9 +101,7 @@ class Ui_sold_dialog(object):
         self.sold_currency_ui.addItem("")
         self.sold_currency_ui.setObjectName(u"sold_currency_ui")
         self.sold_currency_ui.setMinimumSize(QSize(95, 0))
-        font = QFont(":/fonts/Ubuntu-R.ttf")
-        font.setPointSize(20)
-        self.sold_currency_ui.setFont(font)
+        self.sold_currency_ui.setFont(font1)
         self.sold_currency_ui.setStyleSheet(u"QComboBox {\n"
 "   \n"
 "}\n"
@@ -153,11 +159,13 @@ class Ui_sold_dialog(object):
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.label = QLabel(self.frame_3)
         self.label.setObjectName(u"label")
+        self.label.setFont(font)
 
         self.verticalLayout_3.addWidget(self.label)
 
         self.sold_creator_royalty = QDoubleSpinBox(self.frame_3)
         self.sold_creator_royalty.setObjectName(u"sold_creator_royalty")
+        self.sold_creator_royalty.setFont(font1)
         self.sold_creator_royalty.setStyleSheet(u"font-size: 20pt;")
 
         self.verticalLayout_3.addWidget(self.sold_creator_royalty)
@@ -181,11 +189,13 @@ class Ui_sold_dialog(object):
         self.verticalLayout_6.setContentsMargins(-1, -1, 0, -1)
         self.label_3 = QLabel(self.frame_2)
         self.label_3.setObjectName(u"label_3")
+        self.label_3.setFont(font)
 
         self.verticalLayout_6.addWidget(self.label_3)
 
         self.sold_market_royalty = QDoubleSpinBox(self.frame_2)
         self.sold_market_royalty.setObjectName(u"sold_market_royalty")
+        self.sold_market_royalty.setFont(font1)
         self.sold_market_royalty.setStyleSheet(u"font-size: 20pt;")
 
         self.verticalLayout_6.addWidget(self.sold_market_royalty)
@@ -212,12 +222,13 @@ class Ui_sold_dialog(object):
         self.verticalLayout.setContentsMargins(0, -1, 0, -1)
         self.label_5 = QLabel(self.sell_date_frame)
         self.label_5.setObjectName(u"label_5")
+        self.label_5.setFont(font)
 
         self.verticalLayout.addWidget(self.label_5)
 
         self.sold_date_ui = QDateEdit(self.sell_date_frame)
         self.sold_date_ui.setObjectName(u"sold_date_ui")
-        self.sold_date_ui.setFont(font)
+        self.sold_date_ui.setFont(font1)
         self.sold_date_ui.setStyleSheet(u"\n"
 "QCalendarWidget QToolButton {\n"
 "  font-size: 20pt;\n"
@@ -251,6 +262,7 @@ class Ui_sold_dialog(object):
         self.sold_dialog_button = QPushButton(self.frame)
         self.sold_dialog_button.setObjectName(u"sold_dialog_button")
         self.sold_dialog_button.setMinimumSize(QSize(0, 50))
+        self.sold_dialog_button.setFont(font)
         self.sold_dialog_button.setStyleSheet(u"QPushButton{\n"
 "background-color: rgba(255, 255, 255, 30);\n"
 "border: 1px solid rgba(255, 255, 255, 40);\n"
