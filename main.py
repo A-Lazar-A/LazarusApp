@@ -11,7 +11,8 @@ def main():
     db = DataBase()
     db.create_table()
     app = QApplication()
-    centered = QScreen.geometry(QApplication.primaryScreen()).center()
+    centered = QScreen.availableGeometry(QApplication.primaryScreen()).center()
+
 
     window = MainWindow()
     splash = SplashWindow(window)
@@ -22,7 +23,7 @@ def main():
     geo = splash.frameGeometry()
     geo.moveCenter(centered)
     splash.move(geo.topRight())
-    splash.show()
+    window.show()
     sys.exit(app.exec())
 
 

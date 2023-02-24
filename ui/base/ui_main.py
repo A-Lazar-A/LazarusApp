@@ -47,7 +47,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.label = QLabel(self.income_frame)
         self.label.setObjectName(u"label")
-        font = QFont()
+        font = QFont(":/fonts/Ubuntu-R.ttf")
         font.setPointSize(20)
         font.setBold(True)
         self.label.setFont(font)
@@ -197,8 +197,25 @@ class Ui_MainWindow(object):
         font3 = QFont()
         font3.setPointSize(13)
         self.tabWidget.setFont(font3)
-        self.tabWidget.setStyleSheet(u"background-color: rgb(31, 31, 31);\n"
-"border: none;")
+        self.tabWidget.setStyleSheet(u"QTabBar::tab {\n"
+"  background: rgb(31, 31, 31); \n"
+"\n"
+"} \n"
+"QTabWidget{\n"
+"  background-color: rgb(31, 31, 31); \n"
+"}\n"
+"QTabBar::tab:selected { \n"
+"  background: rgba(255,255,255,10); \n"
+"\n"
+"}\n"
+"QTabWidget::pane {\n"
+"background: black;\n"
+"  top:-1px; \n"
+"\n"
+"\n"
+"} \n"
+"\n"
+"")
         self.tabWidget.setTabPosition(QTabWidget.North)
         self.tabWidget.setTabShape(QTabWidget.Rounded)
         self.tabWidget.setElideMode(Qt.ElideNone)
@@ -207,11 +224,13 @@ class Ui_MainWindow(object):
         self.horizontalLayout_8 = QHBoxLayout(self.whole_time)
         self.horizontalLayout_8.setSpacing(0)
         self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
-        self.horizontalLayout_8.setContentsMargins(1, 0, 1, 0)
+        self.horizontalLayout_8.setContentsMargins(0, 0, 0, 0)
         self.whole_chart = QChartView(self.whole_time)
         self.whole_chart.setObjectName(u"whole_chart")
-        self.whole_chart.setStyleSheet(u"background-color: none;\n"
-"border: none;")
+        self.whole_chart.setStyleSheet(u"\n"
+"background: rgb(31, 31, 31); \n"
+"border: none;\n"
+"border-radius: 0px;")
 
         self.horizontalLayout_8.addWidget(self.whole_chart)
 
@@ -221,7 +240,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_9 = QHBoxLayout(self.weekly)
         self.horizontalLayout_9.setSpacing(0)
         self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
-        self.horizontalLayout_9.setContentsMargins(1, 0, 1, 0)
+        self.horizontalLayout_9.setContentsMargins(0, 0, 0, 0)
         self.weekly_chart = QChartView(self.weekly)
         self.weekly_chart.setObjectName(u"weekly_chart")
         self.weekly_chart.setStyleSheet(u"background-color: none;\n"
@@ -235,7 +254,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_10 = QHBoxLayout(self.monthly)
         self.horizontalLayout_10.setSpacing(0)
         self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
-        self.horizontalLayout_10.setContentsMargins(1, 0, 1, 0)
+        self.horizontalLayout_10.setContentsMargins(0, 0, 0, 0)
         self.monthly_chart = QChartView(self.monthly)
         self.monthly_chart.setObjectName(u"monthly_chart")
         self.monthly_chart.setStyleSheet(u"background-color: none;\n"
@@ -249,7 +268,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_11 = QHBoxLayout(self.yearly)
         self.horizontalLayout_11.setSpacing(0)
         self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
-        self.horizontalLayout_11.setContentsMargins(1, 0, 1, 0)
+        self.horizontalLayout_11.setContentsMargins(0, 0, 0, 0)
         self.yearly_chart = QChartView(self.yearly)
         self.yearly_chart.setObjectName(u"yearly_chart")
         self.yearly_chart.setStyleSheet(u"background-color: none;\n"
@@ -359,6 +378,56 @@ class Ui_MainWindow(object):
         __qtablewidgetitem8 = QTableWidgetItem()
         self.table_items_view.setHorizontalHeaderItem(8, __qtablewidgetitem8)
         self.table_items_view.setObjectName(u"table_items_view")
+        self.table_items_view.setStyleSheet(u"QTableWidget {\n"
+"    background-color: rgb(31,31,31);\n"
+"background: rgb(31,31,31);\n"
+"    color: white;\n"
+"}\n"
+"QHeaderView::section {\n"
+"    background-color: rgb(31,31,31);\n"
+"    \n"
+"}\n"
+"QTableWidget QTableCornerButton::section {\n"
+"    background-color:  rgb(31,31,31);\n"
+"\n"
+"}\n"
+"\n"
+"/*  HANDLE BAR VERTICAL */\n"
+"QScrollBar::handle:vertical {	\n"
+"	background-color:rgb(80, 80, 80);\n"
+"	min-height: 30px;\n"
+"	border-radius: 7px;\n"
+"}\n"
+" /* VERTICAL SCROLLBAR */\n"
+"            QScrollBar:vertical {\n"
+"                border: none;\n"
+"                background: rgb(31, 31, 31);\n"
+"                width: 14px;\n"
+"                \n"
+"                border-radius: 0px;\n"
+"            }\n"
+"\n"
+"\n"
+"/* RESET ARROW */\n"
+"QScrollBar::add-line:vertical {\n"
+"      border: none;\n"
+"      background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::sub-line:vertical{\n"
+"      border: none;\n"
+"      background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+""
+                        "                background: none;\n"
+"            }\n"
+"            QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"                background: none;\n"
+"            }\n"
+"\n"
+"")
         self.table_items_view.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.table_items_view.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
         self.table_items_view.setEditTriggers(QAbstractItemView.NoEditTriggers)
@@ -373,7 +442,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(MainWindow)

@@ -321,8 +321,25 @@ border: none;</string>
             </font>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(31, 31, 31);
-border: none;</string>
+            <string notr="true">QTabBar::tab {
+  background: rgb(31, 31, 31); 
+
+} 
+QTabWidget{
+  background-color: rgb(31, 31, 31); 
+}
+QTabBar::tab:selected { 
+  background: rgba(255,255,255,10); 
+
+}
+QTabWidget::pane {
+background: black;
+  top:-1px; 
+
+
+} 
+
+</string>
            </property>
            <property name="tabPosition">
             <enum>QTabWidget::North</enum>
@@ -331,7 +348,7 @@ border: none;</string>
             <enum>QTabWidget::Rounded</enum>
            </property>
            <property name="currentIndex">
-            <number>0</number>
+            <number>3</number>
            </property>
            <property name="elideMode">
             <enum>Qt::ElideNone</enum>
@@ -345,13 +362,13 @@ border: none;</string>
               <number>0</number>
              </property>
              <property name="leftMargin">
-              <number>1</number>
+              <number>0</number>
              </property>
              <property name="topMargin">
               <number>0</number>
              </property>
              <property name="rightMargin">
-              <number>1</number>
+              <number>0</number>
              </property>
              <property name="bottomMargin">
               <number>0</number>
@@ -359,8 +376,10 @@ border: none;</string>
              <item>
               <widget class="QChartView" name="whole_chart" native="true">
                <property name="styleSheet">
-                <string notr="true">background-color: none;
-border: none;</string>
+                <string notr="true">
+background: rgb(31, 31, 31); 
+border: none;
+border-radius: 0px;</string>
                </property>
               </widget>
              </item>
@@ -375,13 +394,13 @@ border: none;</string>
               <number>0</number>
              </property>
              <property name="leftMargin">
-              <number>1</number>
+              <number>0</number>
              </property>
              <property name="topMargin">
               <number>0</number>
              </property>
              <property name="rightMargin">
-              <number>1</number>
+              <number>0</number>
              </property>
              <property name="bottomMargin">
               <number>0</number>
@@ -405,13 +424,13 @@ border: none;</string>
               <number>0</number>
              </property>
              <property name="leftMargin">
-              <number>1</number>
+              <number>0</number>
              </property>
              <property name="topMargin">
               <number>0</number>
              </property>
              <property name="rightMargin">
-              <number>1</number>
+              <number>0</number>
              </property>
              <property name="bottomMargin">
               <number>0</number>
@@ -435,13 +454,13 @@ border: none;</string>
               <number>0</number>
              </property>
              <property name="leftMargin">
-              <number>1</number>
+              <number>0</number>
              </property>
              <property name="topMargin">
               <number>0</number>
              </property>
              <property name="rightMargin">
-              <number>1</number>
+              <number>0</number>
              </property>
              <property name="bottomMargin">
               <number>0</number>
@@ -565,6 +584,57 @@ background-color: rgba(255, 255, 255, 50);
     </item>
     <item>
      <widget class="QTableWidget" name="table_items_view">
+      <property name="styleSheet">
+       <string notr="true">QTableWidget {
+    background-color: rgb(31,31,31);
+background: rgb(31,31,31);
+    color: white;
+}
+QHeaderView::section {
+    background-color: rgb(31,31,31);
+    
+}
+QTableWidget QTableCornerButton::section {
+    background-color:  rgb(31,31,31);
+
+}
+
+/*  HANDLE BAR VERTICAL */
+QScrollBar::handle:vertical {	
+	background-color:rgb(80, 80, 80);
+	min-height: 30px;
+	border-radius: 7px;
+}
+ /* VERTICAL SCROLLBAR */
+            QScrollBar:vertical {
+                border: none;
+                background: rgb(31, 31, 31);
+                width: 14px;
+                
+                border-radius: 0px;
+            }
+
+
+/* RESET ARROW */
+QScrollBar::add-line:vertical {
+      border: none;
+      background: none;
+}
+
+QScrollBar::sub-line:vertical{
+      border: none;
+      background: none;
+}
+
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+                background: none;
+            }
+            QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+                background: none;
+            }
+
+</string>
+      </property>
       <property name="horizontalScrollBarPolicy">
        <enum>Qt::ScrollBarAlwaysOff</enum>
       </property>
