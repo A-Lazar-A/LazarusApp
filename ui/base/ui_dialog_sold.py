@@ -93,7 +93,7 @@ class Ui_sold_dialog(object):
         self.sold_currency_ui.addItem("")
         self.sold_currency_ui.setObjectName(u"sold_currency_ui")
         self.sold_currency_ui.setMinimumSize(QSize(95, 0))
-        font = QFont()
+        font = QFont(":/fonts/Ubuntu-R.ttf")
         font.setPointSize(20)
         self.sold_currency_ui.setFont(font)
         self.sold_currency_ui.setStyleSheet(u"QComboBox {\n"

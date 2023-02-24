@@ -62,7 +62,7 @@ class Ui_MainWindow(object):
 
         self.all_income_rub = QLabel(self.income_frame)
         self.all_income_rub.setObjectName(u"all_income_rub")
-        font1 = QFont()
+        font1 = QFont(":/fonts/Ubuntu-R.ttf")
         font1.setPointSize(16)
         self.all_income_rub.setFont(font1)
 
@@ -100,7 +100,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.weekly_income_rub = QLabel(self.income_frame)
         self.weekly_income_rub.setObjectName(u"weekly_income_rub")
-        font2 = QFont()
+        font2 = QFont(":/fonts/Ubuntu-R.ttf")
         font2.setPointSize(18)
         self.weekly_income_rub.setFont(font2)
 
@@ -194,7 +194,7 @@ class Ui_MainWindow(object):
 
         self.tabWidget = QTabWidget(self.statistic_frame)
         self.tabWidget.setObjectName(u"tabWidget")
-        font3 = QFont()
+        font3 = QFont(":/fonts/Ubuntu-R.ttf")
         font3.setPointSize(13)
         self.tabWidget.setFont(font3)
         self.tabWidget.setStyleSheet(u"QTabBar::tab {\n"

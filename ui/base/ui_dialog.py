@@ -62,7 +62,7 @@ class Ui_Dialog(object):
         sizePolicy2.setVerticalStretch(0)
         sizePolicy2.setHeightForWidth(self.item_name.sizePolicy().hasHeightForWidth())
         self.item_name.setSizePolicy(sizePolicy2)
-        font = QFont()
+        font = QFont(":/fonts/Ubuntu-R.ttf")
         font.setPointSize(20)
         self.item_name.setFont(font)
         self.item_name.setStyleSheet(u"margin-top:18px;")
