@@ -38,7 +38,8 @@ class DialogWindow(QDialog):
             'income_usd': None,
         }
         db.add_item(item, int(self.ui.quantity_ui.text()))
-        self.mainwindow.refresh_table()
+
+        self.mainwindow.update_table(int(self.ui.quantity_ui.text()))
         self.mainwindow.refresh_weekly()
         self.mainwindow.refresh_monthly()
         self.mainwindow.refresh_yearly()

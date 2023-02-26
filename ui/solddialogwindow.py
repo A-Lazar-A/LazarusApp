@@ -37,7 +37,7 @@ class SoldDialogWindow(QDialog):
 
         db.update_sold_item(item)
 
-        self.mainwindow.refresh_table()
+        self.mainwindow.init_table()
         self.mainwindow.refresh_weekly()
         self.mainwindow.refresh_monthly()
         self.mainwindow.refresh_yearly()

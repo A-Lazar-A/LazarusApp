@@ -29,7 +29,7 @@ class MainWindow(QMainWindow):
         self.monthly_chart()
         self.yearly_chart()
 
-        self.refresh_table()
+        self.init_table()
         self.refresh_weekly()
         self.refresh_monthly()
         self.refresh_yearly()
@@ -211,7 +211,23 @@ class MainWindow(QMainWindow):
 
         self.ui.whole_chart.setChart(chart)
 
-    def refresh_table(self):
+    def update_table(self, quantity: int):
+        db = DataBase()
+        items_to_update = db.get_item()[:quantity]
+        res = db.beautify_items(db, items_to_update)
+        for row_number, row_data in enumerate(res):
+            self.ui.table_items_view.insertRow(0)
+            for colum, data in enumerate(row_data):
+                self.ui.table_items_view.setItem(0, colum, QTableWidgetItem(data))
+                if colum == 7 or colum == 8:
+                    if float(data[:-1]) >= 0:
+                        self.ui.table_items_view.item(0, colum).setBackground(
+                            QColor(87, 227, 137, 50))
+                    else:
+                        self.ui.table_items_view.item(row_number, colum).setBackground(
+                            QColor(165, 29, 45, 50))
+
+    def init_table(self):
         db = DataBase()
         self.ui.table_items_view.setRowCount(0)
 
@@ -239,7 +255,7 @@ class MainWindow(QMainWindow):
         for sel in selected:
             rowid = self.ui.table_items_view.item(sel.row(), 9).text()
             db.delete_item(rowid)
-        self.refresh_table()
+        self.init_table()
         self.refresh_weekly()
         self.refresh_monthly()
         self.refresh_yearly()
