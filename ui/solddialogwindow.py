@@ -27,11 +27,11 @@ class SoldDialogWindow(QDialog):
         db = DataBase()
 
         item = {
-            'id': self.mainwindow.ui.table_items_view.item(self.selected[0].row(), 7).text(),
+            'id': self.mainwindow.ui.table_items_view.item(self.selected[0].row(), 9).text(),
             'sell_price': Decimal(self.ui.sold_price_ui.text().replace(',', '.')),
             'sell_currency': self.ui.sold_currency_ui.currentText().lower(),
             'sell_date': self.ui.sold_date_ui.date().toString('yyyy-MM-dd'),
-            'creator_royalty': Decimal(self.ui.sold_creator_royalty.text().replace(', ', '.')),
+            'creator_royalty': Decimal(self.ui.sold_creator_royalty.text().replace(',', '.')),
             'market_royalty': Decimal(self.ui.sold_market_royalty.text().replace(',', '.')),
         }
 

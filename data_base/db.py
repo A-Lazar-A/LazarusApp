@@ -122,7 +122,7 @@ class DataBase():
         return current if id else current[::-1]
 
     def update_sold_item(self, item: dict):
-        current = self.cursor.execute("""SELECT * FROM items WHERE ROWID = (:id)""", item).fetchone()
+        current = self.get_item(item['id'])
         income_rub = Decimal(current[-2])
         income_usd = Decimal(current[-1])
         item['buy_price'] = current[1]
@@ -139,6 +139,9 @@ class DataBase():
             item['income_usd'] = str(sell_price_usdt + income_usd)
 
         item['sell_price'] = str(item['sell_price'])
+        item['creator_royalty'] = str(item['creator_royalty'])
+        item['market_royalty'] = str(item['market_royalty'])
+
         self.cursor.execute(
             """UPDATE items SET sell_price = :sell_price, sell_date = :sell_date, sell_currency = :sell_currency, 
             income_rub = :income_rub, creator_royalty = :creator_royalty, market_royalty = :market_royalty,
