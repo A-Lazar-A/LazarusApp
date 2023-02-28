@@ -1,4 +1,4 @@
-from PySide6.QtGui import QScreen
+from PySide6 import QtGui
 
 from data_base.db import DataBase
 from ui.mainwindow import MainWindow
@@ -11,7 +11,7 @@ def main():
     db = DataBase()
     db.create_table()
     app = QApplication()
-    centered = QScreen.availableGeometry(QApplication.primaryScreen()).center()
+    app.setWindowIcon(QtGui.QIcon('favicon.ico'))
 
     window = MainWindow()
     splash = SplashWindow(window)
