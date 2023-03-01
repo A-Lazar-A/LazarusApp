@@ -30,30 +30,30 @@ class DataBase():
     def count_sell_price(self, item: dict) -> tuple:
         match item['sell_currency']:
             case 'usdt':
-                sell_price_usdt = item['sell_price']
+                sell_price_usdt = Decimal(item['sell_price'])
                 response = requests.get('https://api.binance.com/api/v3/ticker/price',
                                         params={'symbol': 'USDTRUB'}).json()
-                sell_price_rub = item['sell_price'] * Decimal(response['price'])
+                sell_price_rub = Decimal(item['sell_price']) * Decimal(response['price'])
             case 'rub':
-                sell_price_rub = item['sell_price']
+                sell_price_rub = Decimal(item['sell_price'])
                 response = requests.get('https://api.binance.com/api/v3/ticker/price',
                                         params={'symbol': 'USDTRUB'}).json()
-                sell_price_usdt = item['sell_price'] / Decimal(response['price'])
+                sell_price_usdt = Decimal(item['sell_price']) / Decimal(response['price'])
             case 'ada':
 
                 response = requests.get('https://api.binance.com/api/v3/ticker/price',
                                         params={'symbol': 'ADARUB'}).json()
-                sell_price_rub = item['sell_price'] * Decimal(response['price'])
+                sell_price_rub = Decimal(item['sell_price']) * Decimal(response['price'])
                 response = requests.get('https://api.binance.com/api/v3/ticker/price',
                                         params={'symbol': 'ADAUSDT'}).json()
-                sell_price_usdt = item['sell_price'] * Decimal(response['price'])
+                sell_price_usdt = Decimal(item['sell_price']) * Decimal(response['price'])
             case 'eth':
                 response = requests.get('https://api.binance.com/api/v3/ticker/price',
                                         params={'symbol': 'ETHRUB'}).json()
-                sell_price_rub = item['sell_price'] * Decimal(response['price'])
+                sell_price_rub = Decimal(item['sell_price']) * Decimal(response['price'])
                 response = requests.get('https://api.binance.com/api/v3/ticker/price',
                                         params={'symbol': 'ETHUSDT'}).json()
-                sell_price_usdt = item['sell_price'] * Decimal(response['price'])
+                sell_price_usdt = Decimal(item['sell_price']) * Decimal(response['price'])
         royalty = 1 - item['creator_royalty'] / 100 - item['market_royalty'] / 100
         sell_price_rub *= royalty
         sell_price_usdt *= royalty
@@ -63,30 +63,30 @@ class DataBase():
     def count_buy_price(self, item: dict) -> tuple:
         match item['buy_currency']:
             case 'usdt':
-                buy_price_usdt = item['buy_price']
+                buy_price_usdt = Decimal(item['buy_price'])
                 response = requests.get('https://api.binance.com/api/v3/ticker/price',
                                         params={'symbol': 'USDTRUB'}).json()
-                buy_price_rub = (item['buy_price'] * Decimal(response['price'])).quantize(Decimal('1.00'))
+                buy_price_rub = (Decimal(item['buy_price']) * Decimal(response['price'])).quantize(Decimal('1.00'))
             case 'rub':
-                buy_price_rub = item['buy_price']
+                buy_price_rub = Decimal(item['buy_price'])
                 response = requests.get('https://api.binance.com/api/v3/ticker/price',
                                         params={'symbol': 'USDTRUB'}).json()
-                buy_price_usdt = (item['buy_price'] / Decimal(response['price'])).quantize(Decimal('1.00'))
+                buy_price_usdt = (Decimal(item['buy_price']) / Decimal(response['price'])).quantize(Decimal('1.00'))
             case 'ada':
 
                 response = requests.get('https://api.binance.com/api/v3/ticker/price',
                                         params={'symbol': 'ADARUB'}).json()
-                buy_price_rub = (item['buy_price'] * Decimal(response['price'])).quantize(Decimal('1.00'))
+                buy_price_rub = (Decimal(item['buy_price']) * Decimal(response['price'])).quantize(Decimal('1.00'))
                 response = requests.get('https://api.binance.com/api/v3/ticker/price',
                                         params={'symbol': 'ADAUSDT'}).json()
-                buy_price_usdt = (item['buy_price'] * Decimal(response['price'])).quantize(Decimal('1.00'))
+                buy_price_usdt = (Decimal(item['buy_price']) * Decimal(response['price'])).quantize(Decimal('1.00'))
             case 'eth':
                 response = requests.get('https://api.binance.com/api/v3/ticker/price',
                                         params={'symbol': 'ETHRUB'}).json()
-                buy_price_rub = (item['buy_price'] * Decimal(response['price'])).quantize(Decimal('1.00'))
+                buy_price_rub = (Decimal(item['buy_price']) * Decimal(response['price'])).quantize(Decimal('1.00'))
                 response = requests.get('https://api.binance.com/api/v3/ticker/price',
                                         params={'symbol': 'ETHUSDT'}).json()
-                buy_price_usdt = (item['buy_price'] * Decimal(response['price'])).quantize(Decimal('1.00'))
+                buy_price_usdt = (Decimal(item['buy_price']) * Decimal(response['price'])).quantize(Decimal('1.00'))
 
         return buy_price_rub, buy_price_usdt
 

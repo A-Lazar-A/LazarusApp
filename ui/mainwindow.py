@@ -261,6 +261,11 @@ class MainWindow(QMainWindow):
         self.refresh_yearly()
         self.refresh_all_income()
 
+        self.whole_chart()
+        self.weekly_chart()
+        self.monthly_chart()
+        self.yearly_chart()
+
     def refresh_weekly(self):
         db = DataBase()
         rub, usd = db.calc_income(db.get_sales(7))
